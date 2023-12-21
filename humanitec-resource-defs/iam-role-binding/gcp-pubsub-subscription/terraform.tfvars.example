@@ -1,0 +1,11 @@
+
+# The class of the gcp-pubsub-subscription resource
+gcp_pubsub_subscription_resource_class = ""
+
+# Resource definition name
+name = ""
+
+prefix = ""
+
+# The role to bind to the gcp-pubsub-subscription resource
+role = ""

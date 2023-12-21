@@ -1,0 +1,35 @@
+<!-- BEGIN_TF_DOCS -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| terraform | >= 1.3.0 |
+| humanitec | ~> 0 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| humanitec | ~> 0 |
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [humanitec_resource_definition.main](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition) | resource |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| gcp\_pubsub\_subscription\_resource\_class | The class of the gcp-pubsub-subscription resource | `string` | n/a | yes |
+| name | Resource definition name | `string` | n/a | yes |
+| prefix | n/a | `string` | n/a | yes |
+| role | The role to bind to the gcp-pubsub-subscription resource | `string` | n/a | yes |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| id | n/a |
+<!-- END_TF_DOCS -->

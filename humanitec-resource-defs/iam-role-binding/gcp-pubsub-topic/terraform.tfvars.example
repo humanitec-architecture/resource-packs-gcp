@@ -1,0 +1,11 @@
+
+# The class of the gcp-pubsub-topic resource
+gcp_pubsub_topic_resource_class = ""
+
+# Resource definition name
+name = ""
+
+prefix = ""
+
+# The role to bind to the gcp-pubsub-topic resource
+role = ""
