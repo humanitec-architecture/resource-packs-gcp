@@ -16,7 +16,7 @@ resource "google_project_iam_member" "role" {
 }
 
 resource "google_service_account_iam_member" "workload_identity_k8s_service_account" {
-  service_account_id = google_service_account.default.name
+  service_account_id = google_service_account.main.name
   role               = "roles/iam.workloadIdentityUser"
   member             = "serviceAccount:${var.project}.svc.id.goog[${var.namespace}/${local.k8s_service_account_name}]"
 }

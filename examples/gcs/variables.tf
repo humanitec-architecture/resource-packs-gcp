@@ -19,7 +19,7 @@ variable "humanitec_organization" {
 
 variable "humanitec_application" {
   type    = string
-  default = "gcp-cloud-storage-example"
+  default = "gcs-test"
 }
 
 variable "resource_packs_gcp_url" {
