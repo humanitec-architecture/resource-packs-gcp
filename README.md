@@ -11,6 +11,7 @@ A collection of GCP resources ready to be used with [Humanitec](https://humanite
 The following resources are included:
 
 * [dns/basic](./humanitec-resource-defs/dns/basic): GCP Cloud DNS `dns` resource.
+* [gcs/basic](./humanitec-resource-defs/gcs/basic): A basic cloud storage bucket.
 * [redis/basic](./humanitec-resource-defs/redis/basic): GCP Memorystore `redis` resource.
 
 The `humanitec-resource-defs` directory includes the respective resource definitions.

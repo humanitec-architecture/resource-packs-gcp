@@ -1,0 +1,22 @@
+app_id = ""
+
+# List of additional bindings to grant to the service account
+bindings = ""
+
+# GCP credentials
+credentials = ""
+
+env_id = ""
+
+# k8s namespace
+namespace = ""
+
+prefix = ""
+
+# GCP project ID
+project = ""
+
+res_id = ""
+
+# List of project-level roles to grant to the service account
+roles = ""

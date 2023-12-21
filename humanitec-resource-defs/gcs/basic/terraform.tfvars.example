@@ -1,0 +1,24 @@
+
+# GCP credentials
+credentials = ""
+
+# Whether to force destroy the bucket when deleting
+force_destroy = false
+
+# The location of the bucket
+location = ""
+
+# Resource name (can contain placeholders like ${context.app.id})
+name = ""
+
+# Name prefix
+prefix = ""
+
+# GCP project ID
+project = ""
+
+# GCP Resource Pack git ref
+resource_packs_gcp_rev = "refs/heads/main"
+
+# GCP Resource Pack git url
+resource_packs_gcp_url = "https://github.com/humanitec-architecture/resource-packs-gcp.git"

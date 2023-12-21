@@ -1,0 +1,11 @@
+
+# The class of the GCS resource
+gcs_resource_class = ""
+
+# Resource definition name
+name = ""
+
+prefix = ""
+
+# The role to bind to the GCS resource
+role = ""
