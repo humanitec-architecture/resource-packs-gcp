@@ -18,6 +18,6 @@ provider "google" {
     "managed-by" = "humanitec"
     "hum-app-id" = var.app_id
     "hum-env-id" = var.env_id
-    "hum-res-id" = var.res_id
+    # "hum-res-id" = var.res_id
   }
 }
