@@ -3,8 +3,8 @@ locals {
 }
 
 resource "google_service_account" "main" {
-  display_name = var.prefix
-  account_id   = var.prefix
+  display_name = "${var.prefix}workload service account"
+  account_id   = "${var.prefix}workload"
 }
 
 resource "google_project_iam_member" "role" {

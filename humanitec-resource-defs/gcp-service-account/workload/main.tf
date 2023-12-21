@@ -22,7 +22,7 @@ resource "humanitec_resource_definition" "main" {
         project = var.project
         roles   = var.roles
 
-        prefix = "${var.prefix}$${context.res.id}"
+        prefix = "${var.prefix}"
 
         namespace = "$${resources.k8s-namespace#k8s-namespace.outputs.namespace}"
 
