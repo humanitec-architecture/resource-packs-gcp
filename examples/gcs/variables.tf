@@ -13,10 +13,6 @@ variable "location" {
   type        = string
 }
 
-variable "humanitec_organization" {
-  type = string
-}
-
 variable "humanitec_application" {
   type    = string
   default = "gcs-test"
@@ -29,7 +25,7 @@ variable "resource_packs_gcp_url" {
 }
 
 variable "resource_packs_gcp_rev" {
-  description = "GCP Resource Pack git branch"
+  description = "GCP Resource Pack git ref"
   type        = string
   default     = "refs/heads/main"
 }

@@ -30,16 +30,14 @@ locals {
 module "gcs_basic" {
   source = "../../humanitec-resource-defs/gcs/basic"
 
-  project        = var.project
-  credentials    = var.credentials
-  force_destroy  = true
-  location       = var.location
-  policy_classes = []
-
   resource_packs_gcp_url = var.resource_packs_gcp_url
   resource_packs_gcp_rev = var.resource_packs_gcp_rev
-  humanitec_organization = var.humanitec_organization
-  prefix                 = local.res_def_prefix
+
+  project       = var.project
+  credentials   = var.credentials
+  force_destroy = true
+  location      = var.location
+  prefix        = local.res_def_prefix
 }
 
 resource "humanitec_resource_definition_criteria" "gcs_basic" {
@@ -51,14 +49,12 @@ resource "humanitec_resource_definition_criteria" "gcs_basic" {
 module "iam_role_binding_gcs_admin" {
   source = "../../humanitec-resource-defs/iam-role-binding/gcs-admin"
 
-  project     = var.project
-  credentials = var.credentials
-
   resource_packs_gcp_url = var.resource_packs_gcp_url
   resource_packs_gcp_rev = var.resource_packs_gcp_rev
 
-  prefix                        = local.res_def_prefix
-  gcs_resource_definition_class = local.gcs_class
+  project     = var.project
+  credentials = var.credentials
+  prefix      = local.res_def_prefix
 }
 
 resource "humanitec_resource_definition_criteria" "iam_role_binding_gcs_admin" {
@@ -70,14 +66,13 @@ resource "humanitec_resource_definition_criteria" "iam_role_binding_gcs_admin" {
 module "gcp_service_account_workload" {
   source = "../../humanitec-resource-defs/gcp-service-account/workload"
 
+  resource_packs_gcp_url = var.resource_packs_gcp_url
+  resource_packs_gcp_rev = var.resource_packs_gcp_rev
+
   project     = var.project
   credentials = var.credentials
   roles       = ["roles/storage.admin"]
-
-  resource_packs_gcp_url = var.resource_packs_gcp_url
-  resource_packs_gcp_rev = var.resource_packs_gcp_rev
-  humanitec_organization = var.humanitec_organization
-  prefix                 = local.res_def_prefix
+  prefix      = local.res_def_prefix
 }
 
 resource "humanitec_resource_definition_criteria" "gcp_service_account_workload" {

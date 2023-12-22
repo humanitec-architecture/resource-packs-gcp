@@ -9,7 +9,7 @@ variable "resource_packs_gcp_url" {
 }
 
 variable "resource_packs_gcp_rev" {
-  description = "GCP Resource Pack git branch"
+  description = "GCP Resource Pack git ref"
   type        = string
   default     = "refs/heads/main"
 }
@@ -21,10 +21,5 @@ variable "project" {
 
 variable "credentials" {
   description = "GCP credentials"
-  type        = string
-}
-
-variable "gcs_resource_definition_class" {
-  description = "GCS resource definition class"
   type        = string
 }

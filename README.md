@@ -10,7 +10,7 @@ A collection of GCP resources ready to be used with [Humanitec](https://humanite
 
 The following resources are included:
 
-* None
+* [gcs/basic](./humanitec-resource-defs/gcs/basic): A basic cloud storage bucket.
 
 The `humanitec-resource-defs` directory includes the respective resource definitions.
 

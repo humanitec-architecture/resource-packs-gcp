@@ -14,9 +14,9 @@ variable "env_id" {
   type = string
 }
 
-variable "res_id" {
-  type = string
-}
+# variable "res_id" {
+#   type = string
+# }
 
 variable "project" {
   description = "GCP project ID"
