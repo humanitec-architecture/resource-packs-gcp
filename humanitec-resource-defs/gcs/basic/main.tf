@@ -4,13 +4,6 @@ resource "humanitec_resource_definition" "main" {
   name        = "${var.prefix}gcs-basic"
   type        = "gcs"
 
-  # provision = {
-  #   for s in var.policy_classes : "aws-policy.${s}" => {
-  #     match_dependents = true
-  #     is_dependent     = false
-  #   }
-  # }
-
   driver_inputs = {
     secrets_string = jsonencode({
       variables = {

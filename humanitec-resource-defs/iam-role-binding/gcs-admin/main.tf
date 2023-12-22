@@ -6,13 +6,6 @@ resource "humanitec_resource_definition" "main" {
   # TODO Switch the GCP type once available
   type = "aws-policy"
 
-  # provision = {
-  #   "gcp-service-account.default" = {
-  #     match_dependents = true
-  #     is_dependent     = false
-  #   }
-  # }
-
   driver_inputs = {
     secrets_string = jsonencode({
       variables = {
