@@ -6,6 +6,13 @@ resource "humanitec_resource_definition" "main" {
   # TODO Switch the GCP type once available
   type = "aws-policy"
 
+  # provision = {
+  #   "gcp-service-account.default" = {
+  #     match_dependents = true
+  #     is_dependent     = false
+  #   }
+  # }
+
   driver_inputs = {
     secrets_string = jsonencode({
       variables = {
@@ -27,8 +34,7 @@ resource "humanitec_resource_definition" "main" {
 
         project = var.project
 
-        bucket          = "$${resources['gcs.${var.gcs_resource_definition_class}'].outputs.arn}"
-        service_account = "$${resources['gcp-service-account.default'].outputs.email}"
+        service_account = "$${resources['gcp-service-account.default#modules.app'].outputs.email}"
       }
     })
   }
