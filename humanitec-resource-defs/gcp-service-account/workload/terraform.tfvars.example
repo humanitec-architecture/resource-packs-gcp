@@ -14,4 +14,4 @@ resource_packs_gcp_rev = "refs/heads/main"
 resource_packs_gcp_url = "https://github.com/humanitec-architecture/resource-packs-gcp.git"
 
 # List of roles to assign to the service account
-roles = ""
+roles = []

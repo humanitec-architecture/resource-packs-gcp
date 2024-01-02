@@ -71,7 +71,6 @@ module "gcp_service_account_workload" {
 
   project     = var.project
   credentials = var.credentials
-  roles       = ["roles/storage.admin"]
   prefix      = local.res_def_prefix
 }
 

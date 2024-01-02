@@ -15,6 +15,7 @@ variable "credentials" {
 variable "roles" {
   description = "List of roles to assign to the service account"
   type        = set(string)
+  default     = []
 }
 
 variable "resource_packs_gcp_url" {
