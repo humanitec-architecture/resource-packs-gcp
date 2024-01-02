@@ -1,0 +1,19 @@
+app_id = ""
+
+# GCP credentials
+credentials = ""
+
+env_id = ""
+
+# k8s namespace
+namespace = ""
+
+prefix = ""
+
+# GCP project ID
+project = ""
+
+res_id = ""
+
+# List of roles to assign to the service account
+roles = ""
