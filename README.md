@@ -11,6 +11,7 @@ A collection of GCP resources ready to be used with [Humanitec](https://humanite
 The following resources are included:
 
 * [gcs/basic](./humanitec-resource-defs/gcs/basic): A basic cloud storage bucket.
+* [pubsub-topic/basic](./humanitec-resource-defs/pubsub-topic/basic): A basic cloud Pub/Sub topic.
 
 The `humanitec-resource-defs` directory includes the respective resource definitions.
 
