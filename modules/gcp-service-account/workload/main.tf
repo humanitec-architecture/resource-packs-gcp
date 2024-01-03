@@ -4,7 +4,7 @@ locals {
 
 resource "google_service_account" "main" {
   display_name = "${var.prefix}workload service account ${var.app_id}/${var.env_id}/${var.res_id}"
-  account_id   = "${var.prefix}workload-${k8s_service_account_name}"
+  account_id   = "${var.prefix}workload-${local.k8s_service_account_name}"
 }
 
 resource "google_project_iam_member" "role" {

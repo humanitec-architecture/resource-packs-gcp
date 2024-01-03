@@ -5,6 +5,13 @@ resource "humanitec_resource_definition" "main" {
   # TODO: Fix onces there is a real type
   type = "spanner-instance"
 
+  provision = {
+    "aws-policy.${var.policy_class}" = {
+      match_dependents = true
+      is_dependent     = false
+    }
+  }
+
   driver_inputs = {
     secrets_string = jsonencode({
       variables = {

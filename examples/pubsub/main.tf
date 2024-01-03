@@ -1,10 +1,9 @@
 
 
 locals {
-  res_def_prefix           = "${var.humanitec_application}-"
-  topic_class              = "default"
-  publisher_binding_class  = "gcp-pubsub-topic-publisher"
-  subscriber_binding_class = "gcp-pubsub-subscription-subscriber"
+  res_def_prefix          = "${var.humanitec_application}-"
+  publisher_policy_class  = "gcp-pubsub-topic-publisher"
+  subscriber_policy_class = "gcp-pubsub-subscription-subscriber"
 }
 
 resource "humanitec_application" "example" {

@@ -23,3 +23,8 @@ variable "credentials" {
   description = "GCP credentials"
   type        = string
 }
+
+variable "policy_class" {
+  description = "Policy binding for the service account"
+  type        = string
+}
