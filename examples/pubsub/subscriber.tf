@@ -9,6 +9,8 @@ module "iam_role_binding_gcp_pubsub_subscription_subscriber" {
   project     = var.project
   credentials = var.credentials
   prefix      = local.res_def_prefix
+
+  subscription_class = local.subscriber_policy_class
 }
 
 resource "humanitec_resource_definition_criteria" "iam_role_binding_gcp_pubsub_subscription_subscriber" {

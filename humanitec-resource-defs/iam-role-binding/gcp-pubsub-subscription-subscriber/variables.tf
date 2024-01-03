@@ -23,3 +23,8 @@ variable "credentials" {
   description = "GCP credentials"
   type        = string
 }
+
+variable "subscription_class" {
+  description = "Subscription resource definition class"
+  type        = string
+}

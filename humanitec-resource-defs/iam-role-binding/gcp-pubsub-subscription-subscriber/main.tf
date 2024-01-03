@@ -6,12 +6,12 @@ resource "humanitec_resource_definition" "main" {
   # TODO Switch the GCP type once available
   type = "aws-policy"
 
-  provision = {
-    "gcp-service-account.default" = {
-      match_dependents = true
-      is_dependent     = false
-    }
-  }
+  # provision = {
+  #   "gcp-service-account.default" = {
+  #     match_dependents = false
+  #     is_dependent     = true
+  #   }
+  # }
 
   driver_inputs = {
     secrets_string = jsonencode({
@@ -34,7 +34,10 @@ resource "humanitec_resource_definition" "main" {
 
         project = var.project
 
-        service_account = "$${resources.workload>gcp-service-account.outputs.email}"
+        # service_account = "$${resources.workload>gcp-service-account.outputs.email}"
+
+        subscription    = "$${resources['spanner-instance.${var.subscription_class}'].outputs.arn}"
+        service_account = "invalid@humanitec.com"
       }
     })
   }

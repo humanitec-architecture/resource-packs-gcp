@@ -8,6 +8,8 @@ module "iam_role_binding_gcp_pubsub_topic_publisher" {
   project     = var.project
   credentials = var.credentials
   prefix      = local.res_def_prefix
+
+  topic_class = local.publisher_policy_class
 }
 
 resource "humanitec_resource_definition_criteria" "iam_role_binding_gcp_pubsub_topic_publisher" {
