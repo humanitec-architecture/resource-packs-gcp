@@ -1,0 +1,14 @@
+app_id = ""
+
+# GCP credentials
+credentials = ""
+
+env_id = ""
+
+# GCP project ID
+project = ""
+
+service_account = ""
+
+# The subscription name to bind to attach IAM policy to.
+subscription = ""

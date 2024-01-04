@@ -1,0 +1,12 @@
+app_id = ""
+bucket = ""
+
+# GCP credentials
+credentials = ""
+
+env_id = ""
+
+# GCP project ID
+project = ""
+
+service_account = ""
