@@ -35,9 +35,8 @@ resource "humanitec_resource_definition" "main" {
         project = var.project
 
         # service_account = "$${resources.workload>gcp-service-account.outputs.email}"
-
-        subscription    = "$${resources['spanner-instance.${var.subscription_class}'].outputs.arn}"
-        service_account = "invalid@humanitec.com"
+        service_account = "$${resources['gcp-service-account.default#modules.app-publisher'].outputs.email}"
+        subscription    = "$${resources['spanner-instance.${var.subscription_class}'].outputs.name}"
       }
     })
   }
