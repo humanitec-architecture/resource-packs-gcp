@@ -10,7 +10,7 @@ A collection of GCP resources ready to be used with [Humanitec](https://humanite
 
 The following resources are included:
 
-* None
+* [redis/basic](./humanitec-resource-defs/redis/basic): GCP Memorystore Redis resource.
 
 The `humanitec-resource-defs` directory includes the respective resource definitions.
 
