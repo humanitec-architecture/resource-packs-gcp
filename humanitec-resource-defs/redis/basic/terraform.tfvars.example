@@ -1,0 +1,15 @@
+alternative_location_id    = ""
+auth_enabled               = false
+authorized_network         = ""
+credentials                = ""
+display_name               = ""
+location_id                = ""
+memory_size_gb             = ""
+prefix                     = ""
+project                    = ""
+redis_version              = "REDIS_4_0"
+region                     = ""
+reserved_ip_range          = ""
+resource_packs_gcp_rev     = "ref/heads/main"
+resource_packs_gcp_url     = "https://github.com/humanitec-architecture/resource-packs-gcp.git"
+weekly_maintenance_windows = {}
