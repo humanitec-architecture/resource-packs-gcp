@@ -1,0 +1,21 @@
+app_name = "dns-test"
+
+# GCP credentials
+credentials = ""
+
+# The name of the zone in which this record set will reside.
+managed_zone = ""
+
+# The DNS name of the managed zone.
+managed_zone_dns_name = ""
+
+# GCP project ID
+project = ""
+
+region = ""
+
+# GCP Resource Pack git ref
+resource_packs_gcp_rev = "refs/heads/main"
+
+# GCP Resource Pack git url
+resource_packs_gcp_url = "https://github.com/humanitec-architecture/resource-packs-gcp.git"
