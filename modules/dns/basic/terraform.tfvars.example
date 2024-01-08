@@ -1,0 +1,25 @@
+app_id      = ""
+credentials = ""
+env_id      = ""
+
+# The IPv4 address that the DNS name should resolve to.
+ip_address = ""
+
+# The IPv6 address that the DNS name should resolve to.
+ipv6_address = ""
+
+# The name of the zone in which this record set will reside.
+managed_zone = ""
+
+# The DNS name of the managed zone.
+managed_zone_dns_name = ""
+
+# A valid fully qualified domain name that the DNS name should resolve to.
+name = ""
+
+project = ""
+region  = ""
+res_id  = ""
+
+# The subdomain of the DNS name that the DNS record is for.
+subdomain = ""
