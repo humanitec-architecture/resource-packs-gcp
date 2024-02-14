@@ -23,7 +23,9 @@ serviceaccount.yaml:
     metadata:
       name: $${resources.gcp-service-account.outputs.k8s_service_account_name}
       annotations:
+        {{- if "$${resources.gcp-service-account.outputs.email}" }}
         iam.gke.io/gcp-service-account: $${resources.gcp-service-account.outputs.email}
+        {{- end }}
         context: {{trimPrefix "modules." "$${context.res.id}"}}
         res: $${context.res.id}
         app: $${context.app.id}

@@ -10,5 +10,5 @@ resource "google_storage_bucket_iam_member" "main" {
 
   bucket = each.value["bucket"]
   role   = each.value["role"]
-  member = "serviceAccount:${google_service_account.main.email}"
+  member = "serviceAccount:${google_service_account.main[0].email}"
 }

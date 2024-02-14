@@ -1,5 +1,5 @@
 output "email" {
-  value = google_service_account.main.email
+  value = local.account_required ? google_service_account.main[0].email : ""
 }
 
 output "k8s_service_account_name" {
