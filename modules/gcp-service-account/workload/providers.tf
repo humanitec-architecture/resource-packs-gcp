@@ -13,11 +13,11 @@ provider "google" {
   project     = var.project
   credentials = var.credentials
 
-  # TODO
   default_labels = {
-    "managed-by" = "humanitec"
-    "hum-app-id" = var.app_id
-    "hum-env-id" = var.env_id
-    # "hum-res-id" = var.res_id
+    "humanitec"  = "true"
+    "hum-app"    = var.app_id
+    "hum-env"    = var.env_id
+    "hum-res"    = replace(var.res_id, ".", "-")
+    "managed-by" = "terraform"
   }
 }

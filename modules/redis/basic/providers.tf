@@ -13,10 +13,12 @@ provider "google" {
   project     = var.project
   region      = var.region
   credentials = jsonencode(var.credentials)
+
   default_labels = {
-    "managed-by" = "humanitec"
-    "hum-app-id" = var.app_id
-    "hum-env-id" = var.env_id
-    "hum-res-id" = replace(var.res_id, ".", "-")
+    "humanitec"  = "true"
+    "hum-app"    = var.app_id
+    "hum-env"    = var.env_id
+    "hum-res"    = replace(var.res_id, ".", "-")
+    "managed-by" = "terraform"
   }
 }
