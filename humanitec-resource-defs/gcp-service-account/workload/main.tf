@@ -26,7 +26,7 @@ resource "humanitec_resource_definition" "main" {
 
         namespace = "$${resources.k8s-namespace#k8s-namespace.outputs.namespace}"
 
-        bindings = "$${resources.workload>aws-policy.outputs.binding}"
+        bindings = "$${resources.workload>gcp-iam-policy-binding.outputs.binding}"
 
         res_id = "$${context.res.id}"
         app_id = "$${context.app.id}"

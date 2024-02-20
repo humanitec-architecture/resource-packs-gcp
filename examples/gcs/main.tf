@@ -44,7 +44,7 @@ resource "humanitec_resource_definition_criteria" "gcs_basic" {
 ## Policy
 
 module "iam_role_binding_gcs_admin" {
-  source = "../../humanitec-resource-defs/iam-role-binding/gcs"
+  source = "../../humanitec-resource-defs/gcp-iam-policy-binding/gcs"
 
   prefix = var.prefix
 
@@ -80,7 +80,7 @@ resource "humanitec_resource_definition_criteria" "gcs_basic_admin" {
 ## Policy
 
 module "iam_role_binding_gcs_read_only" {
-  source = "../../humanitec-resource-defs/iam-role-binding/gcs"
+  source = "../../humanitec-resource-defs/gcp-iam-policy-binding/gcs"
 
   prefix = var.prefix
 
