@@ -1,3 +1,16 @@
+# Example: redis resource based on GCP Memorystore
+
+This example configures a [redis](https://developer.humanitec.com/platform-orchestrator/reference/resource-types/#redis) Resource Definition using GCP Memorystore.
+
+The created Resource Definition can be used in your Score file using:
+
+```yaml
+resources:
+  ...
+  redis:
+    type: redis
+```
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 

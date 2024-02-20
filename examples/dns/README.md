@@ -1,3 +1,16 @@
+# Example: dns resource based on GCP Cloud DNS
+
+This example configures a [dns](https://developer.humanitec.com/platform-orchestrator/reference/resource-types/#dns) Resource Definition using GCP Cloud DNS.
+
+The created Resource Definition can be used in your Score file using:
+
+```yaml
+resources:
+  ...
+  dns:
+    type: dns
+```
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
