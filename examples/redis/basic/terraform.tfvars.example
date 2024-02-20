@@ -12,9 +12,15 @@ humanitec_org_id = ""
 # Humanitec API token
 humanitec_token = ""
 
-location_id            = ""
-memory_size_gb         = ""
-name                   = ""
+location_id    = ""
+memory_size_gb = ""
+
+# Name of the example application
+name = "hum-rp-redis-example"
+
+# Prefix of the created resources
+prefix = "hum-rp-redis-ex-"
+
 project                = ""
 region                 = ""
 resource_packs_gcp_rev = "ref/heads/main"

@@ -32,6 +32,7 @@ variable "name" {
 }
 
 variable "prefix" {
-  type    = string
-  default = "hum-rp-gcs-ex-"
+  description = "Prefix of the created resources"
+  type        = string
+  default     = "hum-rp-gcs-ex-"
 }

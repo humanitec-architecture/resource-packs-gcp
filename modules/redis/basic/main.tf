@@ -1,6 +1,11 @@
+locals {
+  # Name restrictions https://cloud.google.com/memorystore/docs/memcached/instance-node-properties, not memcached, but still 40 chars
+  default_name = substr("${var.prefix}${var.app_id}-${var.env_id}-${replace(var.res_id, ".", "-")}", 0, 40)
+}
+
 resource "google_redis_instance" "cache" {
-  name         = var.name
-  display_name = var.display_name
+  name         = coalesce(var.name, local.default_name)
+  display_name = coalesce(var.display_name, local.default_name)
 
   tier                    = "STANDARD_HA"
   location_id             = var.location_id

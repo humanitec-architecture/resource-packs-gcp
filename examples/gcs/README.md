@@ -66,7 +66,7 @@ The workload service account will automatically be assigned the necessary GCP Se
 | location | The location of the bucket | `string` | n/a | yes |
 | project | GCP project ID | `string` | n/a | yes |
 | name | Name of the example application | `string` | `"hum-rp-gcs-example"` | no |
-| prefix | n/a | `string` | `"hum-rp-gcs-ex-"` | no |
+| prefix | Prefix of the created resources | `string` | `"hum-rp-gcs-ex-"` | no |
 | resource\_packs\_gcp\_rev | GCP Resource Pack git ref | `string` | `"refs/heads/main"` | no |
 | resource\_packs\_gcp\_url | GCP Resource Pack git url | `string` | `"https://github.com/humanitec-architecture/resource-packs-gcp.git"` | no |
 <!-- END_TF_DOCS -->

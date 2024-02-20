@@ -2,6 +2,12 @@ variable "prefix" {
   type = string
 }
 
+variable "name" {
+  type        = string
+  description = "Resource name (can contain placeholders like $${context.app.id})"
+  default     = ""
+}
+
 variable "project" {
   description = "GCP project ID"
   type        = string

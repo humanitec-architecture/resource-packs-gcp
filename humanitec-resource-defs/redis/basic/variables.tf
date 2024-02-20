@@ -1,5 +1,6 @@
 variable "prefix" {
-  type = string
+  description = "Prefix for all resources"
+  type        = string
 }
 
 variable "resource_packs_gcp_rev" {
@@ -41,7 +42,9 @@ variable "authorized_network" {
 }
 
 variable "display_name" {
-  type = string
+  type        = string
+  description = "Resource name (can contain placeholders like $${context.app.id})"
+  default     = ""
 }
 
 variable "redis_version" {
@@ -62,4 +65,10 @@ variable "weekly_maintenance_windows" {
 variable "auth_enabled" {
   type    = bool
   default = false
+}
+
+variable "name" {
+  type        = string
+  description = "Resource name (can contain placeholders like $${context.app.id})"
+  default     = ""
 }

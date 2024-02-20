@@ -1,13 +1,22 @@
-alternative_location_id    = ""
-app_id                     = ""
-auth_enabled               = false
-authorized_network         = ""
-credentials                = ""
-display_name               = ""
-env_id                     = ""
-location_id                = ""
-memory_size_gb             = ""
-name                       = ""
+alternative_location_id = ""
+app_id                  = ""
+auth_enabled            = false
+authorized_network      = ""
+credentials             = ""
+
+# Resource display name
+display_name = ""
+
+env_id         = ""
+location_id    = ""
+memory_size_gb = ""
+
+# Resource name
+name = ""
+
+# Prefix for all resources
+prefix = ""
+
 project                    = ""
 redis_version              = "REDIS_4_0"
 region                     = ""

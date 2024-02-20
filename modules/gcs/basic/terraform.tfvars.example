@@ -11,7 +11,10 @@ force_destroy = false
 # The location of the bucket
 location = ""
 
-name   = ""
+# Resource name
+name = ""
+
+# Prefix for all resources
 prefix = ""
 
 # GCP project ID

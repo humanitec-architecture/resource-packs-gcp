@@ -30,10 +30,11 @@
 | credentials | GCP credentials | `string` | n/a | yes |
 | env\_id | n/a | `string` | n/a | yes |
 | namespace | k8s namespace | `string` | n/a | yes |
-| prefix | n/a | `string` | n/a | yes |
+| prefix | Prefix for all resources | `string` | n/a | yes |
 | project | GCP project ID | `string` | n/a | yes |
 | res\_id | n/a | `string` | n/a | yes |
 | roles | List of project-level roles to grant to the service account | `set(string)` | n/a | yes |
+| name | Resource name | `string` | `""` | no |
 
 ## Outputs
 

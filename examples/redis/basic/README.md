@@ -37,10 +37,11 @@
 | humanitec\_token | Humanitec API token | `string` | n/a | yes |
 | location\_id | n/a | `string` | n/a | yes |
 | memory\_size\_gb | n/a | `number` | n/a | yes |
-| name | n/a | `string` | n/a | yes |
 | project | n/a | `string` | n/a | yes |
 | region | n/a | `string` | n/a | yes |
 | humanitec\_host | Humanitec API host url | `string` | `"https://api.humanitec.io"` | no |
+| name | Name of the example application | `string` | `"hum-rp-redis-example"` | no |
+| prefix | Prefix of the created resources | `string` | `"hum-rp-redis-ex-"` | no |
 | resource\_packs\_gcp\_rev | n/a | `string` | `"ref/heads/main"` | no |
 | resource\_packs\_gcp\_url | n/a | `string` | `"https://github.com/humanitec-architecture/resource-packs-gcp.git"` | no |
 <!-- END_TF_DOCS -->

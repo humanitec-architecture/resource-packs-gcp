@@ -2,6 +2,9 @@
 # GCP credentials
 credentials = ""
 
+# Resource name (can contain placeholders like ${context.app.id})
+name = ""
+
 prefix = ""
 
 # GCP project ID

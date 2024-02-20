@@ -15,7 +15,9 @@ variable "humanitec_host" {
 }
 
 variable "name" {
-  type = string
+  description = "Name of the example application"
+  type        = string
+  default     = "hum-rp-redis-example"
 }
 
 variable "resource_packs_gcp_rev" {
@@ -26,6 +28,12 @@ variable "resource_packs_gcp_rev" {
 variable "resource_packs_gcp_url" {
   type    = string
   default = "https://github.com/humanitec-architecture/resource-packs-gcp.git"
+}
+
+variable "prefix" {
+  description = "Prefix of the created resources"
+  type        = string
+  default     = "hum-rp-redis-ex-"
 }
 
 variable "project" {

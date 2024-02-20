@@ -32,8 +32,8 @@ variable "location" {
 }
 
 variable "prefix" {
+  description = "Prefix for all resources"
   type        = string
-  description = "Name prefix"
 }
 
 variable "name" {
