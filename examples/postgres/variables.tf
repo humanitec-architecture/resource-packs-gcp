@@ -1,0 +1,38 @@
+variable "name" {
+  description = "Name of the example application"
+  type        = string
+  default     = "hum-rp-postgres-example"
+}
+
+variable "resource_packs_gcp_rev" {
+  type    = string
+  default = "ref/heads/main"
+}
+
+variable "resource_packs_gcp_url" {
+  type    = string
+  default = "https://github.com/humanitec-architecture/resource-packs-gcp.git"
+}
+
+variable "prefix" {
+  description = "Prefix of the created resources"
+  type        = string
+  default     = "hum-rp-postgres-ex-"
+}
+
+variable "project" {
+  type = string
+}
+
+variable "region" {
+  type = string
+}
+
+variable "credentials" {
+  type = string
+}
+
+variable "private_network" {
+  type        = string
+  description = "The VPC network from which the Cloud SQL instance is accessible for private IP."
+}

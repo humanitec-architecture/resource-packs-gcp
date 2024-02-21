@@ -4,10 +4,16 @@ terraform {
       source  = "hashicorp/google"
       version = "~> 5.17"
     }
+    humanitec = {
+      source  = "humanitec/humanitec"
+      version = "~> 0"
+    }
   }
 
   required_version = ">= 1.3.0"
 }
+
+provider "humanitec" {}
 
 provider "google" {
   project     = var.project
@@ -15,10 +21,7 @@ provider "google" {
   credentials = var.credentials
 
   default_labels = {
-    "humanitec"  = "true"
-    "hum-app"    = var.app_id
-    "hum-env"    = var.env_id
-    "hum-res"    = replace(var.res_id, ".", "-")
-    "managed-by" = "terraform"
+    "managed_by" = "terraform"
+    "source"     = "github.com/humanitec-architecture/resource-pack-gcp"
   }
 }

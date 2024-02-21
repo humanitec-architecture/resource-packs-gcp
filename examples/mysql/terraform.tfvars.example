@@ -1,0 +1,15 @@
+credentials = ""
+
+# Name of the example application
+name = "hum-rp-mysql-example"
+
+# Prefix of the created resources
+prefix = "hum-rp-mysql-ex-"
+
+# The VPC network from which the Cloud SQL instance is accessible for private IP.
+private_network = ""
+
+project                = ""
+region                 = ""
+resource_packs_gcp_rev = "ref/heads/main"
+resource_packs_gcp_url = "https://github.com/humanitec-architecture/resource-packs-gcp.git"

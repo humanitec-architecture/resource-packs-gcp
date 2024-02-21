@@ -4,13 +4,13 @@
 | Name | Version |
 |------|---------|
 | terraform | >= 1.3.0 |
-| google | ~> 5.1 |
+| google | ~> 5.17 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| google | ~> 5.1 |
+| google | ~> 5.17 |
 
 ## Resources
 
