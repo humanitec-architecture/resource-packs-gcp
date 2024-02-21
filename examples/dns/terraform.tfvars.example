@@ -1,4 +1,3 @@
-app_name = "dns-test"
 
 # GCP credentials
 credentials = ""
@@ -8,6 +7,12 @@ managed_zone = ""
 
 # The DNS name of the managed zone.
 managed_zone_dns_name = ""
+
+# Name of the example application
+name = "hum-rp-dns-example"
+
+# Prefix of the created resources
+prefix = "hum-rp-dns-ex-"
 
 # GCP project ID
 project = ""

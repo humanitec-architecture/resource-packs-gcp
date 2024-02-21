@@ -8,6 +8,7 @@ location = ""
 # Name of the example application
 name = "hum-rp-gcs-example"
 
+# Prefix of the created resources
 prefix = "hum-rp-gcs-ex-"
 
 # GCP project ID

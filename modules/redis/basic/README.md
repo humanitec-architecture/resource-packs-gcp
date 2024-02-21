@@ -26,15 +26,16 @@
 | app\_id | n/a | `string` | n/a | yes |
 | authorized\_network | n/a | `string` | n/a | yes |
 | credentials | n/a | `any` | n/a | yes |
-| display\_name | n/a | `string` | n/a | yes |
 | env\_id | n/a | `string` | n/a | yes |
 | location\_id | n/a | `string` | n/a | yes |
 | memory\_size\_gb | n/a | `number` | n/a | yes |
-| name | n/a | `string` | n/a | yes |
+| prefix | Prefix for all resources | `string` | n/a | yes |
 | project | n/a | `string` | n/a | yes |
 | region | n/a | `string` | n/a | yes |
 | res\_id | n/a | `string` | n/a | yes |
 | auth\_enabled | n/a | `bool` | `false` | no |
+| display\_name | Resource display name | `string` | `""` | no |
+| name | Resource name | `string` | `""` | no |
 | redis\_version | n/a | `string` | `"REDIS_4_0"` | no |
 | reserved\_ip\_range | n/a | `string` | `null` | no |
 | weekly\_maintenance\_windows | n/a | `any` | `{}` | no |

@@ -1,10 +1,6 @@
-locals {
-  res_def_prefix = "${var.app_name}-"
-}
-
 resource "humanitec_application" "example" {
-  id   = var.app_name
-  name = var.app_name
+  id   = var.name
+  name = var.name
 }
 
 # cloud dns
@@ -12,7 +8,7 @@ resource "humanitec_application" "example" {
 module "dns_basic" {
   source = "../../humanitec-resource-defs/dns/basic"
 
-  prefix = local.res_def_prefix
+  prefix = var.prefix
 
   resource_packs_gcp_url = var.resource_packs_gcp_url
   resource_packs_gcp_rev = var.resource_packs_gcp_rev

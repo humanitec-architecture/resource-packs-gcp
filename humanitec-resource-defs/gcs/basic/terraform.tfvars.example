@@ -11,7 +11,7 @@ location = ""
 # Resource name (can contain placeholders like ${context.app.id})
 name = ""
 
-# Name prefix
+# Prefix for all resources
 prefix = ""
 
 # GCP project ID

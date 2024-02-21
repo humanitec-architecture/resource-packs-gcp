@@ -1,7 +1,3 @@
-locals {
-  res_def_prefix = "${var.name}-"
-}
-
 resource "humanitec_application" "example" {
   id   = var.name
   name = var.name
@@ -10,8 +6,7 @@ resource "humanitec_application" "example" {
 module "redis" {
   source = "../../../humanitec-resource-defs/redis/basic"
 
-  prefix                  = local.res_def_prefix
-  display_name            = var.name
+  prefix                  = var.prefix
   resource_packs_gcp_rev  = var.resource_packs_gcp_rev
   resource_packs_gcp_url  = var.resource_packs_gcp_url
   project                 = var.project

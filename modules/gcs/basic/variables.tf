@@ -1,10 +1,12 @@
 variable "prefix" {
-  type = string
+  type        = string
+  description = "Prefix for all resources"
 }
 
 variable "name" {
-  type    = string
-  default = ""
+  type        = string
+  description = "Resource name"
+  default     = ""
 }
 
 variable "app_id" {

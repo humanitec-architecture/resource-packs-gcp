@@ -1,3 +1,8 @@
+variable "prefix" {
+  type        = string
+  description = "Prefix for all resources"
+}
+
 variable "project" {
   type = string
 }
@@ -23,7 +28,9 @@ variable "res_id" {
 }
 
 variable "name" {
-  type = string
+  type        = string
+  description = "Resource name"
+  default     = ""
 }
 
 variable "memory_size_gb" {
@@ -48,7 +55,9 @@ variable "redis_version" {
 }
 
 variable "display_name" {
-  type = string
+  type        = string
+  description = "Resource display name"
+  default     = ""
 }
 
 variable "reserved_ip_range" {

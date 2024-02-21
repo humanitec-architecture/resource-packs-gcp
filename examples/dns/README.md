@@ -1,3 +1,16 @@
+# Example: dns resource based on GCP Cloud DNS
+
+This example configures a [dns](https://developer.humanitec.com/platform-orchestrator/reference/resource-types/#dns) Resource Definition using GCP Cloud DNS.
+
+The created Resource Definition can be used in your Score file using:
+
+```yaml
+resources:
+  ...
+  dns:
+    type: dns
+```
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
@@ -34,7 +47,8 @@
 | managed\_zone\_dns\_name | The DNS name of the managed zone. | `string` | n/a | yes |
 | project | GCP project ID | `string` | n/a | yes |
 | region | n/a | `string` | n/a | yes |
-| app\_name | n/a | `string` | `"dns-test"` | no |
+| name | Name of the example application | `string` | `"hum-rp-dns-example"` | no |
+| prefix | Prefix of the created resources | `string` | `"hum-rp-dns-ex-"` | no |
 | resource\_packs\_gcp\_rev | GCP Resource Pack git ref | `string` | `"refs/heads/main"` | no |
 | resource\_packs\_gcp\_url | GCP Resource Pack git url | `string` | `"https://github.com/humanitec-architecture/resource-packs-gcp.git"` | no |
 <!-- END_TF_DOCS -->

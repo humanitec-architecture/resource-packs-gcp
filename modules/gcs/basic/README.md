@@ -26,11 +26,11 @@
 | credentials | GCP credentials | `string` | n/a | yes |
 | env\_id | n/a | `string` | n/a | yes |
 | location | The location of the bucket | `string` | n/a | yes |
-| prefix | n/a | `string` | n/a | yes |
+| prefix | Prefix for all resources | `string` | n/a | yes |
 | project | GCP project ID | `string` | n/a | yes |
 | res\_id | n/a | `string` | n/a | yes |
 | force\_destroy | Whether to force destroy the bucket when deleting | `bool` | `false` | no |
-| name | n/a | `string` | `""` | no |
+| name | Resource name | `string` | `""` | no |
 
 ## Outputs
 

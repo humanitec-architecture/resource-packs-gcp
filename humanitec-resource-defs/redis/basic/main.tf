@@ -20,9 +20,10 @@ resource "humanitec_resource_definition" "main" {
       }
 
       variables = {
-        name                       = "${var.prefix}redis"
+        name                       = var.name
         project                    = var.project
         region                     = var.region
+        prefix                     = var.prefix
         app_id                     = "$${context.app.id}"
         env_id                     = "$${context.env.id}"
         res_id                     = "$${context.res.id}"

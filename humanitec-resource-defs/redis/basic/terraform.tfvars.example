@@ -1,11 +1,20 @@
-alternative_location_id    = ""
-auth_enabled               = false
-authorized_network         = ""
-credentials                = ""
-display_name               = ""
-location_id                = ""
-memory_size_gb             = ""
-prefix                     = ""
+alternative_location_id = ""
+auth_enabled            = false
+authorized_network      = ""
+credentials             = ""
+
+# Resource name (can contain placeholders like ${context.app.id})
+display_name = ""
+
+location_id    = ""
+memory_size_gb = ""
+
+# Resource name (can contain placeholders like ${context.app.id})
+name = ""
+
+# Prefix for all resources
+prefix = ""
+
 project                    = ""
 redis_version              = "REDIS_4_0"
 region                     = ""

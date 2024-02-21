@@ -23,6 +23,7 @@ resource "humanitec_resource_definition" "main" {
         roles   = var.roles
 
         prefix = var.prefix
+        name   = var.name
 
         namespace = "$${resources.k8s-namespace#k8s-namespace.outputs.namespace}"
 
