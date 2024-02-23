@@ -35,6 +35,7 @@ resource "humanitec_resource_definition_criteria" "gcs_basic" {
   resource_definition_id = module.gcs_basic.id
   app_id                 = humanitec_application.example.id
   class                  = local.gcs_basic_class
+  force_delete           = true
 }
 
 # Add different access policy to gcs basic bucket
@@ -59,6 +60,7 @@ resource "humanitec_resource_definition_criteria" "iam_role_binding_gcs_admin" {
   resource_definition_id = module.iam_role_binding_gcs_admin.id
   app_id                 = humanitec_application.example.id
   class                  = local.gcs_admin_policy_class
+  force_delete           = true
 }
 
 ## Exposed passthrough resource definition
@@ -75,6 +77,7 @@ resource "humanitec_resource_definition_criteria" "gcs_basic_admin" {
   resource_definition_id = module.gcs_basic_admin.id
   app_id                 = humanitec_application.example.id
   class                  = local.gcs_basic_admin_class
+  force_delete           = true
 }
 
 # Read-only
@@ -97,6 +100,7 @@ resource "humanitec_resource_definition_criteria" "iam_role_binding_gcs_read_onl
   resource_definition_id = module.iam_role_binding_gcs_read_only.id
   app_id                 = humanitec_application.example.id
   class                  = local.gcs_read_only_policy_class
+  force_delete           = true
 }
 
 ## Exposed passthrough resource definition
@@ -113,6 +117,7 @@ resource "humanitec_resource_definition_criteria" "gcs_basic_read_only" {
   resource_definition_id = module.gcs_basic_read_only.id
   app_id                 = humanitec_application.example.id
   class                  = local.gcs_basic_read_only_class
+  force_delete           = true
 }
 
 # Required resources for workload identity
@@ -127,6 +132,7 @@ module "k8s_service_account" {
 resource "humanitec_resource_definition_criteria" "k8s_service_account" {
   resource_definition_id = module.k8s_service_account.id
   app_id                 = humanitec_application.example.id
+  force_delete           = true
 }
 
 module "gcp_service_account_workload" {
@@ -143,6 +149,7 @@ module "gcp_service_account_workload" {
 resource "humanitec_resource_definition_criteria" "gcp_service_account_workload" {
   resource_definition_id = module.gcp_service_account_workload.id
   app_id                 = humanitec_application.example.id
+  force_delete           = true
 }
 
 module "workload" {
@@ -154,4 +161,5 @@ module "workload" {
 resource "humanitec_resource_definition_criteria" "workload" {
   resource_definition_id = module.workload.id
   app_id                 = humanitec_application.example.id
+  force_delete           = true
 }
