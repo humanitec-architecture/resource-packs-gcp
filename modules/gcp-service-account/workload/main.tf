@@ -3,10 +3,11 @@ locals {
 
   default_name = "${var.prefix}${var.app_id}-${var.env_id}-${var.res_id}"
 
-  name = coalesce(var.name, local.default_name)
+  name           = coalesce(var.name, local.default_name)
+  sanitized_name = replace(local.name, ".", "-")
 
   # Name restrictions https://kubernetes.io/docs/concepts/overview/working-with-objects/names/
-  k8s_service_account_name = trimsuffix(substr(local.name, 0, 64), "-")
+  k8s_service_account_name = trimsuffix(substr(local.sanitized_name, 0, 64), "-")
 }
 
 resource "google_service_account" "main" {
@@ -14,7 +15,7 @@ resource "google_service_account" "main" {
 
   display_name = local.name
   # Name restrictions https://cloud.google.com/iam/quotas, 30 chars
-  account_id = trimsuffix(substr(local.name, 0, 30), "-")
+  account_id = trimsuffix(substr(local.sanitized_name, 0, 30), "-")
 }
 
 resource "google_project_iam_member" "role" {
