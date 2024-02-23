@@ -25,11 +25,13 @@ variable "project" {
 }
 
 variable "region" {
-  type = string
+  description = "GCP region"
+  type        = string
 }
 
 variable "credentials" {
-  type = string
+  description = "GCP credentials"
+  type        = string
 }
 
 variable "private_network" {

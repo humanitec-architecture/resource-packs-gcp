@@ -1,13 +1,16 @@
 variable "project" {
-  type = string
+  description = "GCP project ID"
+  type        = string
 }
 
 variable "region" {
-  type = string
+  description = "GCP region"
+  type        = string
 }
 
 variable "credentials" {
-  type = string
+  description = "GCP credentials"
+  type        = string
 }
 
 variable "app_id" {

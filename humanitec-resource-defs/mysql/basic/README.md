@@ -22,12 +22,12 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| credentials | n/a | `string` | n/a | yes |
+| credentials | GCP credentials | `string` | n/a | yes |
 | database\_version | The MySQL, PostgreSQL or SQL Server version to use. | `string` | n/a | yes |
 | prefix | Prefix for all resources | `string` | n/a | yes |
 | private\_network | The VPC network from which the Cloud SQL instance is accessible for private IP. | `string` | n/a | yes |
 | project | n/a | `string` | n/a | yes |
-| region | n/a | `string` | n/a | yes |
+| region | GCP region | `string` | n/a | yes |
 | tier | The machine type to use. | `string` | n/a | yes |
 | name | Resource name (can contain placeholders like ${context.app.id}) | `string` | `""` | no |
 | resource\_packs\_gcp\_rev | n/a | `string` | `"ref/heads/main"` | no |
