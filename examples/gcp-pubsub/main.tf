@@ -28,6 +28,7 @@ module "k8s_service_account" {
 resource "humanitec_resource_definition_criteria" "k8s_service_account" {
   resource_definition_id = module.k8s_service_account.id
   app_id                 = humanitec_application.example.id
+  force_delete           = true
 }
 
 module "gcp_service_account_workload" {
@@ -46,6 +47,7 @@ module "gcp_service_account_workload" {
 resource "humanitec_resource_definition_criteria" "gcp_service_account_workload" {
   resource_definition_id = module.gcp_service_account_workload.id
   app_id                 = humanitec_application.example.id
+  force_delete           = true
 }
 
 module "workload" {
@@ -57,4 +59,5 @@ module "workload" {
 resource "humanitec_resource_definition_criteria" "workload" {
   resource_definition_id = module.workload.id
   app_id                 = humanitec_application.example.id
+  force_delete           = true
 }

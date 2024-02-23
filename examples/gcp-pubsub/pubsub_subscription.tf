@@ -15,6 +15,7 @@ resource "humanitec_resource_definition_criteria" "pubsub_subscription_basic" {
   resource_definition_id = module.pubsub_subscription_basic.id
   app_id                 = humanitec_application.example.id
   class                  = local.gps_basic_class
+  force_delete           = true
 }
 
 # policy
@@ -33,6 +34,7 @@ resource "humanitec_resource_definition_criteria" "iam_role_binding_gcp_pubsub_s
   resource_definition_id = module.iam_role_binding_gcp_pubsub_subscription_subscriber.id
   app_id                 = humanitec_application.example.id
   class                  = local.gps_subscriber_policy_class
+  force_delete           = true
 }
 
 ## Exposed passthrough resource definition
@@ -50,4 +52,5 @@ resource "humanitec_resource_definition_criteria" "gps_basic_subscriber" {
   resource_definition_id = module.gps_basic_subscriber.id
   app_id                 = humanitec_application.example.id
   class                  = local.gps_basic_subscriber_class
+  force_delete           = true
 }

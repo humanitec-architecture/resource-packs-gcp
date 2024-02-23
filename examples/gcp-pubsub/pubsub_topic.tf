@@ -15,6 +15,7 @@ resource "humanitec_resource_definition_criteria" "pubsub_topic_basic" {
   resource_definition_id = module.pubsub_topic_basic.id
   app_id                 = humanitec_application.example.id
   class                  = local.gpt_basic_class
+  force_delete           = true
 }
 
 # policy
@@ -33,6 +34,7 @@ resource "humanitec_resource_definition_criteria" "iam_role_binding_gcp_pubsub_t
   resource_definition_id = module.iam_role_binding_gcp_pubsub_topic_publisher.id
   app_id                 = humanitec_application.example.id
   class                  = local.gpt_publisher_policy_class
+  force_delete           = true
 }
 
 ## Exposed passthrough resource definition
@@ -50,4 +52,5 @@ resource "humanitec_resource_definition_criteria" "gpt_basic_publisher" {
   resource_definition_id = module.gpt_basic_publisher.id
   app_id                 = humanitec_application.example.id
   class                  = local.gpt_basic_publisher_class
+  force_delete           = true
 }
