@@ -39,6 +39,8 @@ module "gcp_service_account_workload" {
   project     = var.project
   credentials = var.credentials
   prefix      = var.prefix
+
+  name = "hrp-ps-$${context.res.id}"
 }
 
 resource "humanitec_resource_definition_criteria" "gcp_service_account_workload" {

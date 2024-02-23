@@ -15,7 +15,7 @@ EOL
   }
 
   provision = {
-    "aws-policy.${var.policy_resource_class}" = {
+    "gcp-iam-policy-binding.${var.policy_resource_class}" = {
       match_dependents = true
       is_dependent     = false
     }

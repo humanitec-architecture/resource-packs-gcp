@@ -43,8 +43,8 @@ The workload service account will automatically be assigned the necessary GCP Se
 | gcp\_service\_account\_workload | ../../humanitec-resource-defs/gcp-service-account/workload | n/a |
 | gps\_basic\_subscriber | ../../humanitec-resource-defs/gcp-pubsub-subscription/passthrough | n/a |
 | gpt\_basic\_publisher | ../../humanitec-resource-defs/gcp-pubsub-topic/passthrough | n/a |
-| iam\_role\_binding\_gcp\_pubsub\_subscription\_subscriber | ../../humanitec-resource-defs/iam-role-binding/gcp-pubsub-subscription | n/a |
-| iam\_role\_binding\_gcp\_pubsub\_topic\_publisher | ../../humanitec-resource-defs/iam-role-binding/gcp-pubsub-topic | n/a |
+| iam\_role\_binding\_gcp\_pubsub\_subscription\_subscriber | ../../humanitec-resource-defs/gcp-iam-policy-binding/gcp-pubsub-subscription | n/a |
+| iam\_role\_binding\_gcp\_pubsub\_topic\_publisher | ../../humanitec-resource-defs/gcp-iam-policy-binding/gcp-pubsub-topic | n/a |
 | k8s\_service\_account | ../../humanitec-resource-defs/k8s/service-account | n/a |
 | pubsub\_subscription\_basic | ../../humanitec-resource-defs/gcp-pubsub-subscription/basic | n/a |
 | pubsub\_topic\_basic | ../../humanitec-resource-defs/gcp-pubsub-topic/basic | n/a |

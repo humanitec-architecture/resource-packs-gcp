@@ -20,7 +20,7 @@ resource "humanitec_resource_definition_criteria" "pubsub_topic_basic" {
 # policy
 
 module "iam_role_binding_gcp_pubsub_topic_publisher" {
-  source = "../../humanitec-resource-defs/iam-role-binding/gcp-pubsub-topic"
+  source = "../../humanitec-resource-defs/gcp-iam-policy-binding/gcp-pubsub-topic"
 
   prefix = var.prefix
 

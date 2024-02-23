@@ -1,10 +1,9 @@
 resource "humanitec_resource_definition" "main" {
   driver_type = "humanitec/template"
-  id          = "${var.prefix}iam-role-biding-gcp-pubsub-subscription-${var.name}"
-  name        = "${var.prefix}iam-role-biding-gcp-pubsub-subscription-${var.name}"
+  id          = "${var.prefix}gcp-iam-policy-binding-gcp-pubsub-subscription-${var.name}"
+  name        = "${var.prefix}gcp-iam-policy-binding-gcp-pubsub-subscription-${var.name}"
 
-  # TODO Switch the GCP type once available
-  type = "aws-policy"
+  type = "gcp-iam-policy-binding"
 
   driver_inputs = {
     values_string = jsonencode({
