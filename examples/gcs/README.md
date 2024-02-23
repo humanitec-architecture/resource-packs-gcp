@@ -39,8 +39,8 @@ The workload service account will automatically be assigned the necessary GCP Se
 | gcs\_basic | ../../humanitec-resource-defs/gcs/basic | n/a |
 | gcs\_basic\_admin | ../../humanitec-resource-defs/gcs/passthrough | n/a |
 | gcs\_basic\_read\_only | ../../humanitec-resource-defs/gcs/passthrough | n/a |
-| iam\_role\_binding\_gcs\_admin | ../../humanitec-resource-defs/gcp-iam-policy-binding/gcs | n/a |
-| iam\_role\_binding\_gcs\_read\_only | ../../humanitec-resource-defs/gcp-iam-policy-binding/gcs | n/a |
+| iam\_role\_binding\_gcs\_admin | ../../humanitec-resource-defs/gcp-iam-policy-binding/basic | n/a |
+| iam\_role\_binding\_gcs\_read\_only | ../../humanitec-resource-defs/gcp-iam-policy-binding/basic | n/a |
 | k8s\_service\_account | ../../humanitec-resource-defs/k8s/service-account | n/a |
 | workload | ../../humanitec-resource-defs/workload/service-account | n/a |
 

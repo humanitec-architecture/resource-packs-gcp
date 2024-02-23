@@ -22,10 +22,12 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| gcp\_pubsub\_topic\_resource\_class | The class of the gcp-pubsub-topic resource | `string` | n/a | yes |
 | name | Resource definition name | `string` | n/a | yes |
 | prefix | n/a | `string` | n/a | yes |
-| role | The role to bind to the gcp-pubsub-topic resource | `string` | n/a | yes |
+| role | The role to bind to the scope, e.g. roles/storage.admin or roles/pubsub.publisher | `string` | n/a | yes |
+| scope\_key | Type the scope is applied to, e.g. bucket or topic | `string` | n/a | yes |
+| scope\_value | The name of the resource the scope is applied to, e.g. my-bucket or my-topic | `string` | n/a | yes |
+| type | The type of binding that should be created, e.g. storage\_bucket or pubsub\_topic | `string` | n/a | yes |
 
 ## Outputs
 

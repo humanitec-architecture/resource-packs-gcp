@@ -21,13 +21,15 @@ resource "humanitec_resource_definition_criteria" "pubsub_subscription_basic" {
 # policy
 
 module "iam_role_binding_gcp_pubsub_subscription_subscriber" {
-  source = "../../humanitec-resource-defs/gcp-iam-policy-binding/gcp-pubsub-subscription"
+  source = "../../humanitec-resource-defs/gcp-iam-policy-binding/basic"
 
   prefix = var.prefix
+  name   = "gcp-pubsub-subscription-basic-subscriber"
 
-  gcp_pubsub_subscription_resource_class = "basic"
-  name                                   = "subscriber"
-  role                                   = "roles/pubsub.subscriber"
+  type        = "pubsub_subscription"
+  scope_key   = "subscription"
+  scope_value = "$${resources['gcp-pubsub-subscription.${local.gps_basic_class}'].outputs.name}"
+  role        = "roles/pubsub.subscriber"
 }
 
 resource "humanitec_resource_definition_criteria" "iam_role_binding_gcp_pubsub_subscription_subscriber" {

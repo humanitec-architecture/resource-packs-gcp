@@ -1,7 +1,7 @@
 resource "humanitec_resource_definition" "main" {
   driver_type = "humanitec/template"
-  id          = "${var.prefix}gcp-iam-policy-binding-gcp-pubsub-topic-${var.name}"
-  name        = "${var.prefix}gcp-iam-policy-binding-gcp-pubsub-topic-${var.name}"
+  id          = "${var.prefix}gcp-iam-policy-binding-${var.name}"
+  name        = "${var.prefix}gcp-iam-policy-binding-${var.name}"
 
   type = "gcp-iam-policy-binding"
 
@@ -11,8 +11,8 @@ resource "humanitec_resource_definition" "main" {
         outputs = <<EOL
 binding: |
   {{ dict
-    "type" "pubsub_topic"
-    "topic" "$${resources['gcp-pubsub-topic.${var.gcp_pubsub_topic_resource_class}'].outputs.name}"
+    "type" "${var.type}"
+    "${var.scope_key}" "${var.scope_value}"
     "role" "${var.role}"
   | toJson }}
 EOL

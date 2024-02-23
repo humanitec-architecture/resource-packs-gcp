@@ -21,13 +21,15 @@ resource "humanitec_resource_definition_criteria" "pubsub_topic_basic" {
 # policy
 
 module "iam_role_binding_gcp_pubsub_topic_publisher" {
-  source = "../../humanitec-resource-defs/gcp-iam-policy-binding/gcp-pubsub-topic"
+  source = "../../humanitec-resource-defs/gcp-iam-policy-binding/basic"
 
   prefix = var.prefix
+  name   = "gcp-pubsub-topic-basic-publisher"
 
-  gcp_pubsub_topic_resource_class = "basic"
-  name                            = "publisher"
-  role                            = "roles/pubsub.publisher"
+  type        = "pubsub_topic"
+  scope_key   = "topic"
+  scope_value = "$${resources['gcp-pubsub-topic.${local.gpt_basic_class}'].outputs.name}"
+  role        = "roles/pubsub.publisher"
 }
 
 resource "humanitec_resource_definition_criteria" "iam_role_binding_gcp_pubsub_topic_publisher" {

@@ -44,13 +44,15 @@ resource "humanitec_resource_definition_criteria" "gcs_basic" {
 ## Policy
 
 module "iam_role_binding_gcs_admin" {
-  source = "../../humanitec-resource-defs/gcp-iam-policy-binding/gcs"
+  source = "../../humanitec-resource-defs/gcp-iam-policy-binding/basic"
 
   prefix = var.prefix
+  name   = "gcp-iam-policy-binding-gcs-basic-admin"
 
-  gcs_resource_class = local.gcs_basic_class
-  name               = "admin"
-  role               = "roles/storage.admin"
+  type        = "storage_bucket"
+  scope_key   = "bucket"
+  scope_value = "$${resources['gcs.${local.gcs_basic_class}'].outputs.name}"
+  role        = "roles/storage.admin"
 }
 
 resource "humanitec_resource_definition_criteria" "iam_role_binding_gcs_admin" {
@@ -80,13 +82,15 @@ resource "humanitec_resource_definition_criteria" "gcs_basic_admin" {
 ## Policy
 
 module "iam_role_binding_gcs_read_only" {
-  source = "../../humanitec-resource-defs/gcp-iam-policy-binding/gcs"
+  source = "../../humanitec-resource-defs/gcp-iam-policy-binding/basic"
 
   prefix = var.prefix
+  name   = "gcs-basic-read-only"
 
-  gcs_resource_class = local.gcs_basic_class
-  name               = "read-only"
-  role               = "roles/storage.objectViewer"
+  type        = "storage_bucket"
+  scope_key   = "bucket"
+  scope_value = "$${resources['gcs.${local.gcs_basic_class}'].outputs.name}"
+  role        = "roles/storage.objectViewer"
 }
 
 resource "humanitec_resource_definition_criteria" "iam_role_binding_gcs_read_only" {
