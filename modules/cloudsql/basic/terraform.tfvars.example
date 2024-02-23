@@ -20,6 +20,7 @@ prefix = ""
 # The VPC network from which the Cloud SQL instance is accessible for private IP.
 private_network = ""
 
+# GCP project ID
 project = ""
 
 # GCP region
