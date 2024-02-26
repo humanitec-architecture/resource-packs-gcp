@@ -63,9 +63,9 @@ resource "humanitec_resource_definition_criteria" "iam_role_binding_gcs_admin" {
   force_delete           = true
 }
 
-## Exposed passthrough resource definition
+## Exposed delegator resource definition
 module "gcs_basic_admin" {
-  source = "../../humanitec-resource-defs/gcs/passthrough"
+  source = "../../humanitec-resource-defs/gcs/delegator"
 
   prefix = var.prefix
 
@@ -103,9 +103,9 @@ resource "humanitec_resource_definition_criteria" "iam_role_binding_gcs_read_onl
   force_delete           = true
 }
 
-## Exposed passthrough resource definition
+## Exposed delegator resource definition
 module "gcs_basic_read_only" {
-  source = "../../humanitec-resource-defs/gcs/passthrough"
+  source = "../../humanitec-resource-defs/gcs/delegator"
 
   prefix = var.prefix
 

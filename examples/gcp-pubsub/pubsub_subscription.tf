@@ -39,10 +39,10 @@ resource "humanitec_resource_definition_criteria" "iam_role_binding_gcp_pubsub_s
   force_delete           = true
 }
 
-## Exposed passthrough resource definition
+## Exposed delegator resource definition
 
 module "gps_basic_subscriber" {
-  source = "../../humanitec-resource-defs/gcp-pubsub-subscription/passthrough"
+  source = "../../humanitec-resource-defs/gcp-pubsub-subscription/delegator"
 
   prefix = var.prefix
 

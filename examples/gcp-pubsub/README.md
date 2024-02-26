@@ -2,6 +2,8 @@
 
 This example configures a [gcp-pubsub-topic](https://developer.humanitec.com/platform-orchestrator/reference/resource-types/#gcp-pubsub-topic) and a [gcp-pubsub-subscription](https://developer.humanitec.com/platform-orchestrator/reference/resource-types/#gcp-pubsub-subscription) Resource Definition using Google Cloud Pub/Sub.
 
+The Resource Graph is using [delegator resources](https://developer.humanitec.com/platform-orchestrator/examples/resource-graph-patterns/#delegator-resource) to expose shared resources with different access policies.
+
 Those Resource Definitions can be used in your Score file using:
 
 ```yaml
@@ -41,8 +43,8 @@ The workload service account will automatically be assigned the necessary GCP Se
 | Name | Source | Version |
 |------|--------|---------|
 | gcp\_service\_account\_workload | ../../humanitec-resource-defs/gcp-service-account/workload | n/a |
-| gps\_basic\_subscriber | ../../humanitec-resource-defs/gcp-pubsub-subscription/passthrough | n/a |
-| gpt\_basic\_publisher | ../../humanitec-resource-defs/gcp-pubsub-topic/passthrough | n/a |
+| gps\_basic\_subscriber | ../../humanitec-resource-defs/gcp-pubsub-subscription/delegator | n/a |
+| gpt\_basic\_publisher | ../../humanitec-resource-defs/gcp-pubsub-topic/delegator | n/a |
 | iam\_role\_binding\_gcp\_pubsub\_subscription\_subscriber | ../../humanitec-resource-defs/gcp-iam-policy-binding/basic | n/a |
 | iam\_role\_binding\_gcp\_pubsub\_topic\_publisher | ../../humanitec-resource-defs/gcp-iam-policy-binding/basic | n/a |
 | k8s\_service\_account | ../../humanitec-resource-defs/k8s/service-account | n/a |
