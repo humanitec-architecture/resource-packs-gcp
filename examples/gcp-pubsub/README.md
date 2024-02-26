@@ -7,19 +7,36 @@ The Resource Graph is using [delegator resources](https://developer.humanitec.co
 Those Resource Definitions can be used in your Score file using:
 
 ```yaml
+# publishing workload
+containers:
+  app:
+    ...
+    variables:
+      TOPIC_NAME: ${resources.topic.name}
 resources:
   ...
   topic:
+    metadata:
+      annotations:
+        score.humanitec.io/resId: shared.main-topic
     type: gcp-pubsub-topic
     class: basic-publisher
 ```
 
 ```yaml
+# subscribing workload
+containers:
+  app:
+    ...
+    variables:
+      SUBSCRIPTION_NAME: ${resources.subscription.name}
 resources:
   ...
   subscription:
     type: gcp-pubsub-subscription
     class: basic-subscriber
+    params:
+      topic_name: ${resources['gcp-pubsub-topic.basic#shared.main-topic'].outputs.name}
 ```
 
 The workload service account will automatically be assigned the necessary GCP Service Account with the selected role bindings.

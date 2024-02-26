@@ -5,6 +5,15 @@ This example configures a [mysql](https://developer.humanitec.com/platform-orche
 The created Resource Definition can be used in your Score file using:
 
 ```yaml
+containers:
+  app:
+    ...
+    variables:
+      DB_HOST: ${resources.db.host}
+      DB_PORT: ${resources.db.port}
+      DB_USERNAME: ${resources.db.username}
+      DB_PASSWORD: ${resources.db.password}
+      DB_NAME: ${resources.db.name}
 resources:
   ...
   db:

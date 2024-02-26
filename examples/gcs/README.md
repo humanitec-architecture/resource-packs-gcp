@@ -8,6 +8,11 @@ This example configures a [gcs](https://developer.humanitec.com/platform-orchest
 Those Resource Definitions can be used in your Score file using:
 
 ```yaml
+containers:
+  app:
+    ...
+    variables:
+      BUCKET_NAME: ${resources.gcs.name}
 resources:
   ...
   gcs:

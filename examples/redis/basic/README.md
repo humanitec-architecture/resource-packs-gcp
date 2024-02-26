@@ -5,6 +5,15 @@ This example configures a [redis](https://developer.humanitec.com/platform-orche
 The created Resource Definition can be used in your Score file using:
 
 ```yaml
+containers:
+  app:
+    ...
+    variables:
+      REDIS_HOST: ${resources.redis.host}
+      REDIS_PORT: ${resources.redis.port}
+      REDIS_USERNAME: ${resources.redis.username}
+      REDIS_PASSWORD: ${resources.redis.password}
+      REDIS_TLS: "1"
 resources:
   ...
   redis:

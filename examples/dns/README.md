@@ -5,10 +5,21 @@ This example configures a [dns](https://developer.humanitec.com/platform-orchest
 The created Resource Definition can be used in your Score file using:
 
 ```yaml
+containers:
+  ...
+  app:
+    variables:
+      PORT: "3000"
 resources:
   ...
   dns:
     type: dns
+  route:
+    type: route
+    params:
+      host: ${resources.dns.host}
+      path: /
+      port: 3000
 ```
 
 <!-- BEGIN_TF_DOCS -->
