@@ -17,11 +17,13 @@ variable "project" {
 }
 
 variable "region" {
-  type = any
+  description = "GCP region"
+  type        = string
 }
 
 variable "credentials" {
-  type = any
+  description = "GCP credentials"
+  type        = string
 }
 
 variable "managed_zone" {

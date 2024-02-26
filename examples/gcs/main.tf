@@ -35,6 +35,7 @@ resource "humanitec_resource_definition_criteria" "gcs_basic" {
   resource_definition_id = module.gcs_basic.id
   app_id                 = humanitec_application.example.id
   class                  = local.gcs_basic_class
+  force_delete           = true
 }
 
 # Add different access policy to gcs basic bucket
@@ -44,24 +45,27 @@ resource "humanitec_resource_definition_criteria" "gcs_basic" {
 ## Policy
 
 module "iam_role_binding_gcs_admin" {
-  source = "../../humanitec-resource-defs/gcp-iam-policy-binding/gcs"
+  source = "../../humanitec-resource-defs/gcp-iam-policy-binding/basic"
 
   prefix = var.prefix
+  name   = "gcp-iam-policy-binding-gcs-basic-admin"
 
-  gcs_resource_class = local.gcs_basic_class
-  name               = "admin"
-  role               = "roles/storage.admin"
+  type        = "storage_bucket"
+  scope_key   = "bucket"
+  scope_value = "$${resources['gcs.${local.gcs_basic_class}'].outputs.name}"
+  role        = "roles/storage.admin"
 }
 
 resource "humanitec_resource_definition_criteria" "iam_role_binding_gcs_admin" {
   resource_definition_id = module.iam_role_binding_gcs_admin.id
   app_id                 = humanitec_application.example.id
   class                  = local.gcs_admin_policy_class
+  force_delete           = true
 }
 
-## Exposed passthrough resource definition
+## Exposed delegator resource definition
 module "gcs_basic_admin" {
-  source = "../../humanitec-resource-defs/gcs/passthrough"
+  source = "../../humanitec-resource-defs/gcs/delegator"
 
   prefix = var.prefix
 
@@ -73,6 +77,7 @@ resource "humanitec_resource_definition_criteria" "gcs_basic_admin" {
   resource_definition_id = module.gcs_basic_admin.id
   app_id                 = humanitec_application.example.id
   class                  = local.gcs_basic_admin_class
+  force_delete           = true
 }
 
 # Read-only
@@ -80,24 +85,27 @@ resource "humanitec_resource_definition_criteria" "gcs_basic_admin" {
 ## Policy
 
 module "iam_role_binding_gcs_read_only" {
-  source = "../../humanitec-resource-defs/gcp-iam-policy-binding/gcs"
+  source = "../../humanitec-resource-defs/gcp-iam-policy-binding/basic"
 
   prefix = var.prefix
+  name   = "gcs-basic-read-only"
 
-  gcs_resource_class = local.gcs_basic_class
-  name               = "read-only"
-  role               = "roles/storage.objectViewer"
+  type        = "storage_bucket"
+  scope_key   = "bucket"
+  scope_value = "$${resources['gcs.${local.gcs_basic_class}'].outputs.name}"
+  role        = "roles/storage.objectViewer"
 }
 
 resource "humanitec_resource_definition_criteria" "iam_role_binding_gcs_read_only" {
   resource_definition_id = module.iam_role_binding_gcs_read_only.id
   app_id                 = humanitec_application.example.id
   class                  = local.gcs_read_only_policy_class
+  force_delete           = true
 }
 
-## Exposed passthrough resource definition
+## Exposed delegator resource definition
 module "gcs_basic_read_only" {
-  source = "../../humanitec-resource-defs/gcs/passthrough"
+  source = "../../humanitec-resource-defs/gcs/delegator"
 
   prefix = var.prefix
 
@@ -109,6 +117,7 @@ resource "humanitec_resource_definition_criteria" "gcs_basic_read_only" {
   resource_definition_id = module.gcs_basic_read_only.id
   app_id                 = humanitec_application.example.id
   class                  = local.gcs_basic_read_only_class
+  force_delete           = true
 }
 
 # Required resources for workload identity
@@ -123,6 +132,7 @@ module "k8s_service_account" {
 resource "humanitec_resource_definition_criteria" "k8s_service_account" {
   resource_definition_id = module.k8s_service_account.id
   app_id                 = humanitec_application.example.id
+  force_delete           = true
 }
 
 module "gcp_service_account_workload" {
@@ -139,6 +149,7 @@ module "gcp_service_account_workload" {
 resource "humanitec_resource_definition_criteria" "gcp_service_account_workload" {
   resource_definition_id = module.gcp_service_account_workload.id
   app_id                 = humanitec_application.example.id
+  force_delete           = true
 }
 
 module "workload" {
@@ -150,4 +161,5 @@ module "workload" {
 resource "humanitec_resource_definition_criteria" "workload" {
   resource_definition_id = module.workload.id
   app_id                 = humanitec_application.example.id
+  force_delete           = true
 }

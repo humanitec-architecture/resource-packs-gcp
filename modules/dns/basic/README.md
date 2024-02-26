@@ -23,12 +23,12 @@
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | app\_id | n/a | `string` | n/a | yes |
-| credentials | n/a | `string` | n/a | yes |
+| credentials | GCP credentials | `string` | n/a | yes |
 | env\_id | n/a | `string` | n/a | yes |
 | managed\_zone | The name of the zone in which this record set will reside. | `string` | n/a | yes |
 | managed\_zone\_dns\_name | The DNS name of the managed zone. | `string` | n/a | yes |
-| project | n/a | `string` | n/a | yes |
-| region | n/a | `string` | n/a | yes |
+| project | GCP project ID | `string` | n/a | yes |
+| region | GCP region | `string` | n/a | yes |
 | res\_id | n/a | `string` | n/a | yes |
 | subdomain | The subdomain of the DNS name that the DNS record is for. | `string` | n/a | yes |
 | ip\_address | The IPv4 address that the DNS name should resolve to. | `string` | `""` | no |

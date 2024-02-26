@@ -4,15 +4,18 @@ variable "prefix" {
 }
 
 variable "project" {
-  type = string
+  description = "GCP project"
+  type        = string
 }
 
 variable "region" {
-  type = string
+  description = "GCP region"
+  type        = string
 }
 
 variable "credentials" {
-  type = any
+  description = "GCP credentials"
+  type        = string
 }
 
 variable "app_id" {

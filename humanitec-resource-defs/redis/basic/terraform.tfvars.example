@@ -1,7 +1,9 @@
 alternative_location_id = ""
 auth_enabled            = false
 authorized_network      = ""
-credentials             = ""
+
+# GCP credentials
+credentials = ""
 
 # Resource name (can contain placeholders like ${context.app.id})
 display_name = ""
@@ -15,9 +17,12 @@ name = ""
 # Prefix for all resources
 prefix = ""
 
-project                    = ""
-redis_version              = "REDIS_4_0"
-region                     = ""
+project       = ""
+redis_version = "REDIS_4_0"
+
+# GCP region
+region = ""
+
 reserved_ip_range          = ""
 resource_packs_gcp_rev     = "ref/heads/main"
 resource_packs_gcp_url     = "https://github.com/humanitec-architecture/resource-packs-gcp.git"

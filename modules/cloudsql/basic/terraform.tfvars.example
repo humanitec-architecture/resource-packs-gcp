@@ -1,4 +1,6 @@
-app_id      = ""
+app_id = ""
+
+# GCP credentials
 credentials = ""
 
 # The MySQL, PostgreSQL or SQL Server version to use.
@@ -18,9 +20,13 @@ prefix = ""
 # The VPC network from which the Cloud SQL instance is accessible for private IP.
 private_network = ""
 
+# GCP project ID
 project = ""
-region  = ""
-res_id  = ""
+
+# GCP region
+region = ""
+
+res_id = ""
 
 # The machine type to use.
 tier = ""

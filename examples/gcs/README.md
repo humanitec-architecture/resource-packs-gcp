@@ -8,12 +8,19 @@ This example configures a [gcs](https://developer.humanitec.com/platform-orchest
 Those Resource Definitions can be used in your Score file using:
 
 ```yaml
+containers:
+  app:
+    ...
+    variables:
+      BUCKET_NAME: ${resources.gcs.name}
 resources:
   ...
   gcs:
     type: gcs
     class: basic-admin
 ```
+
+The Resource Graph is using [delegator resources](https://developer.humanitec.com/platform-orchestrator/examples/resource-graph-patterns/#delegator-resource) to expose shared resources with different access policies.
 
 The workload service account will automatically be assigned the necessary GCP Service Account with the selected role bindings.
 
@@ -37,10 +44,10 @@ The workload service account will automatically be assigned the necessary GCP Se
 |------|--------|---------|
 | gcp\_service\_account\_workload | ../../humanitec-resource-defs/gcp-service-account/workload | n/a |
 | gcs\_basic | ../../humanitec-resource-defs/gcs/basic | n/a |
-| gcs\_basic\_admin | ../../humanitec-resource-defs/gcs/passthrough | n/a |
-| gcs\_basic\_read\_only | ../../humanitec-resource-defs/gcs/passthrough | n/a |
-| iam\_role\_binding\_gcs\_admin | ../../humanitec-resource-defs/gcp-iam-policy-binding/gcs | n/a |
-| iam\_role\_binding\_gcs\_read\_only | ../../humanitec-resource-defs/gcp-iam-policy-binding/gcs | n/a |
+| gcs\_basic\_admin | ../../humanitec-resource-defs/gcs/delegator | n/a |
+| gcs\_basic\_read\_only | ../../humanitec-resource-defs/gcs/delegator | n/a |
+| iam\_role\_binding\_gcs\_admin | ../../humanitec-resource-defs/gcp-iam-policy-binding/basic | n/a |
+| iam\_role\_binding\_gcs\_read\_only | ../../humanitec-resource-defs/gcp-iam-policy-binding/basic | n/a |
 | k8s\_service\_account | ../../humanitec-resource-defs/k8s/service-account | n/a |
 | workload | ../../humanitec-resource-defs/workload/service-account | n/a |
 

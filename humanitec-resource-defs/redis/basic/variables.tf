@@ -18,11 +18,13 @@ variable "project" {
 }
 
 variable "region" {
-  type = string
+  description = "GCP region"
+  type        = string
 }
 
 variable "credentials" {
-  type = any
+  description = "GCP credentials"
+  type        = string
 }
 
 variable "memory_size_gb" {

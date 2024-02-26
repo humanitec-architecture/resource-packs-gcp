@@ -5,6 +5,15 @@ This example configures a [mysql](https://developer.humanitec.com/platform-orche
 The created Resource Definition can be used in your Score file using:
 
 ```yaml
+containers:
+  app:
+    ...
+    variables:
+      DB_HOST: ${resources.db.host}
+      DB_PORT: ${resources.db.port}
+      DB_USERNAME: ${resources.db.username}
+      DB_PASSWORD: ${resources.db.password}
+      DB_NAME: ${resources.db.name}
 resources:
   ...
   db:
@@ -48,10 +57,10 @@ resources:
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| credentials | n/a | `string` | n/a | yes |
+| credentials | GCP credentials | `string` | n/a | yes |
 | private\_network | The VPC network from which the Cloud SQL instance is accessible for private IP. | `string` | n/a | yes |
 | project | n/a | `string` | n/a | yes |
-| region | n/a | `string` | n/a | yes |
+| region | GCP region | `string` | n/a | yes |
 | name | Name of the example application | `string` | `"hum-rp-mysql-example"` | no |
 | prefix | Prefix of the created resources | `string` | `"hum-rp-mysql-ex-"` | no |
 | resource\_packs\_gcp\_rev | n/a | `string` | `"ref/heads/main"` | no |

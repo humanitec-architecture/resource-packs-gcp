@@ -2,7 +2,9 @@ alternative_location_id = ""
 app_id                  = ""
 auth_enabled            = false
 authorized_network      = ""
-credentials             = ""
+
+# GCP credentials
+credentials = ""
 
 # Resource display name
 display_name = ""
@@ -17,9 +19,14 @@ name = ""
 # Prefix for all resources
 prefix = ""
 
-project                    = ""
-redis_version              = "REDIS_4_0"
-region                     = ""
+# GCP project
+project = ""
+
+redis_version = "REDIS_4_0"
+
+# GCP region
+region = ""
+
 res_id                     = ""
 reserved_ip_range          = ""
 weekly_maintenance_windows = {}

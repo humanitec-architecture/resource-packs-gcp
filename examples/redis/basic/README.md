@@ -5,6 +5,15 @@ This example configures a [redis](https://developer.humanitec.com/platform-orche
 The created Resource Definition can be used in your Score file using:
 
 ```yaml
+containers:
+  app:
+    ...
+    variables:
+      REDIS_HOST: ${resources.redis.host}
+      REDIS_PORT: ${resources.redis.port}
+      REDIS_USERNAME: ${resources.redis.username}
+      REDIS_PASSWORD: ${resources.redis.password}
+      REDIS_TLS: "1"
 resources:
   ...
   redis:
@@ -45,13 +54,13 @@ resources:
 | alternative\_location\_id | n/a | `string` | n/a | yes |
 | auth\_enabled | n/a | `bool` | n/a | yes |
 | authorized\_network | n/a | `string` | n/a | yes |
-| credentials | n/a | `any` | n/a | yes |
+| credentials | GCP credentials | `string` | n/a | yes |
 | humanitec\_org\_id | Humanitec organization where resource definitions will be applied | `string` | n/a | yes |
 | humanitec\_token | Humanitec API token | `string` | n/a | yes |
 | location\_id | n/a | `string` | n/a | yes |
 | memory\_size\_gb | n/a | `number` | n/a | yes |
 | project | n/a | `string` | n/a | yes |
-| region | n/a | `string` | n/a | yes |
+| region | GCP region | `string` | n/a | yes |
 | humanitec\_host | Humanitec API host url | `string` | `"https://api.humanitec.io"` | no |
 | name | Name of the example application | `string` | `"hum-rp-redis-example"` | no |
 | prefix | Prefix of the created resources | `string` | `"hum-rp-redis-ex-"` | no |

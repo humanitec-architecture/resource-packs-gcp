@@ -1,18 +1,21 @@
 locals {
   account_required = length(var.bindings) + length(var.roles) > 0
 
-  # Name restrictions https://cloud.google.com/iam/quotas, 30 chars
-  default_name = trimsuffix(substr("${var.prefix}${var.app_id}-${var.env_id}-${replace(var.res_id, ".", "-")}", 0, 30), "-")
+  default_name = "${var.prefix}${var.app_id}-${var.env_id}-${var.res_id}"
+
+  name           = coalesce(var.name, local.default_name)
+  sanitized_name = replace(local.name, ".", "-")
 
   # Name restrictions https://kubernetes.io/docs/concepts/overview/working-with-objects/names/
-  k8s_service_account_name = coalesce(var.name, local.default_name)
+  k8s_service_account_name = trimsuffix(substr(local.sanitized_name, 0, 64), "-")
 }
 
 resource "google_service_account" "main" {
   count = local.account_required ? 1 : 0
 
-  display_name = coalesce(var.name, local.default_name)
-  account_id   = coalesce(var.name, local.default_name)
+  display_name = local.name
+  # Name restrictions https://cloud.google.com/iam/quotas, 30 chars
+  account_id = trimsuffix(substr(local.sanitized_name, 0, 30), "-")
 }
 
 resource "google_project_iam_member" "role" {

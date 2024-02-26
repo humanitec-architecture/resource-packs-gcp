@@ -17,6 +17,7 @@ prefix = "hum-rp-dns-ex-"
 # GCP project ID
 project = ""
 
+# GCP region
 region = ""
 
 # GCP Resource Pack git ref

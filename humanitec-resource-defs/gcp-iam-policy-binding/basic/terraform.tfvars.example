@@ -1,0 +1,17 @@
+
+# Resource definition name
+name = ""
+
+prefix = ""
+
+# The role to bind to the scope, e.g. roles/storage.admin or roles/pubsub.publisher
+role = ""
+
+# Type the scope is applied to, e.g. bucket or topic
+scope_key = ""
+
+# The name of the resource the scope is applied to, e.g. my-bucket or my-topic
+scope_value = ""
+
+# The type of binding that should be created, e.g. storage_bucket or pubsub_topic
+type = ""
