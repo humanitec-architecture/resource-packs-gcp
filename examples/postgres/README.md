@@ -27,14 +27,14 @@ resources:
 |------|---------|
 | terraform | >= 1.3.0 |
 | google | ~> 5.17 |
-| humanitec | ~> 0 |
+| humanitec | ~> 1.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
 | google | ~> 5.17 |
-| humanitec | ~> 0 |
+| humanitec | ~> 1.0 |
 
 ## Modules
 
