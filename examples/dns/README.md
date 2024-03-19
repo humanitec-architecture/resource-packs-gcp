@@ -1,8 +1,7 @@
 # Example: dns resource based on GCP Cloud DNS
 
-This example configures a [dns](https://developer.humanitec.com/platform-orchestrator/reference/resource-types/#dns) Resource Definition using GCP Cloud DNS.
-
-The created Resource Definition can be used in your Score file using:
+## Configuration
+This example configures a [dns](https://developer.humanitec.com/platform-orchestrator/reference/resource-types/#dns) Resource Definition using GCP Cloud DNS. A workload using the `dns` resource to create dns records looks like:
 
 ```yaml
 containers:
@@ -20,6 +19,30 @@ resources:
       host: ${resources.dns.host}
       path: /
       port: 3000
+```
+
+## Infrastructure setup
+
+```mermaid
+graph TD;
+  subgraph GCP Managed zone
+    record["record"]
+  end
+
+  subgraph GKE Cluster
+    pod[workload pod]
+  end
+  record --> pod
+```
+
+## Orchestrator setup
+
+```mermaid
+graph LR;
+  workload_1 --> dns_1["dns_1, resource_type: dns"]
+  workload_2 --> dns_2["dns_2, resource_type: dns"]
+  workload_2 --> shared.dns_1["shared.dns_1, resource_type: dns"]
+  workload_3 --> shared.dns_1["shared.dns_1, resource_type: dns"]
 ```
 
 <!-- BEGIN_TF_DOCS -->

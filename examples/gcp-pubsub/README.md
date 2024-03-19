@@ -41,6 +41,82 @@ resources:
 
 The workload service account will automatically be assigned the necessary GCP Service Account with the selected role bindings.
 
+## Configuration
+This example configures a [gcp-pubsub-topic](https://developer.humanitec.com/platform-orchestrator/reference/resource-types/#gcp-pubsub-topic) and a [gcp-pubsub-subscription](https://developer.humanitec.com/platform-orchestrator/reference/resource-types/#gcp-pubsub-subscription) Resource Definition using Google Cloud Pub/Sub.
+
+Those Resource Definitions can be used in your Score file using:
+
+```yaml
+# publishing workload
+containers:
+  app:
+    ...
+    variables:
+      TOPIC_NAME: ${resources.topic.name}
+resources:
+  ...
+  topic:
+    metadata:
+      annotations:
+        score.humanitec.io/resId: shared.main-topic
+    type: gcp-pubsub-topic
+    class: basic-publisher
+```
+
+```yaml
+# subscribing workload
+containers:
+  app:
+    ...
+    variables:
+      SUBSCRIPTION_NAME: ${resources.subscription.name}
+resources:
+  ...
+  subscription:
+    type: gcp-pubsub-subscription
+    class: basic-subscriber
+    params:
+      topic_name: ${resources['gcp-pubsub-topic.basic#shared.main-topic'].outputs.name}
+```
+
+## Infrastructure setup
+The workload service account will be automatically assigned to the necessary roles with the selected policies.
+
+```mermaid
+graph TD;
+  topic["GCP Pub/Sub topic"]
+  topic_policy["GCP Pub/Sub Publisher Policy"]
+  topic_role["GCP Pub/Sub Publisher Role"]
+  sub["GCP Pub/Sub subscription"]
+  sub_policy["GCP Pub/Sub Subscriber Policy"]
+  sub_role["GCP Pub/Sub Subscriber Role"]
+  subgraph EKS Cluster
+    topic_pod[workload pod]
+    topic_service[Service Account]
+    sub_pod[workload pod]
+    sub_service[Service Account]
+  end
+  topic --> topic_pod
+  topic_policy --> topic
+  topic_policy --> topic_role --> topic_service --> topic_pod
+  sub --> sub_pod
+  sub_policy --> sub
+  sub_policy --> sub_role --> sub_service --> sub_pod
+  topic --> sub
+
+```
+
+## Orchestrator setup
+The Resource Graph is using [delegator resources](https://developer.humanitec.com/platform-orchestrator/examples/resource-graph-patterns/#delegator-resource) to expose shared resources with different access policies.
+
+```mermaid
+graph LR;
+  workload_1 --> delegator_1["delegator_1, resource_type: gcp-pubsub-topic", class: basic-publisher] --> shared.gcp-pubsub-topic_1["shared.gcp-pubsub-topic_1, resource_type: gcp-pubsub-topic"]
+  workload_2 --> delegator_2["delegator_2, resource_type: gcp-pubsub-subscriber, class: basic-consumer"] --> shared.gcp-pubsub-subscriber_1["shared.gcp-pubsub-subscriber_1, resource_type: gcp-pubsub-subscriber"]
+  workload_2 --> shared.delegator_1["shared.delegator_1, resource_type: gcp-pubsub-subscriber, class: basic-consumer"]
+  workload_3 --> shared.delegator_1 --> shared.gcp-pubsub-subscriber_2["shared.gcp-pubsub-subscriber_2, resource_type: gcp-pubsub-subscriber"]
+```
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 

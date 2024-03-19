@@ -1,8 +1,7 @@
 # Example: mysql resource based on GCP CloudSQL
 
-This example configures a [mysql](https://developer.humanitec.com/platform-orchestrator/reference/resource-types/#mysql) Resource Definition using GCP CloudSQL.
-
-The created Resource Definition can be used in your Score file using:
+## Configuration
+This example configures a [mysql](https://developer.humanitec.com/platform-orchestrator/reference/resource-types/#mysql) Resource Definition using GCP CloudSQL. A workload using the `mysql` resource to create database instance looks like:
 
 ```yaml
 containers:
@@ -18,6 +17,29 @@ resources:
   ...
   db:
     type: mysql
+```
+
+## Infrastructure setup
+
+```mermaid
+graph TD;
+  subgraph VPC
+    database["MySQl GCP CloudSQL"]
+    subgraph GKE Cluster
+      pod[workload pod]
+    end
+    database --> pod
+  end
+```
+
+## Orchestrator setup
+
+```mermaid
+graph LR;
+  workload_1 --> db_1["db_1, resource_type: mysql"]
+  workload_2 --> db_2["db_2, resource_type: mysql"]
+  workload_2 --> shared.db_1["shared.db_1, resource_type: mysql"]
+  workload_3 --> shared.db_1["shared.db_1, resource_type: mysql"]  
 ```
 
 <!-- BEGIN_TF_DOCS -->
@@ -63,6 +85,6 @@ resources:
 | region | GCP region | `string` | n/a | yes |
 | name | Name of the example application | `string` | `"hum-rp-mysql-example"` | no |
 | prefix | Prefix of the created resources | `string` | `"hum-rp-mysql-ex-"` | no |
-| resource\_packs\_gcp\_rev | n/a | `string` | `"ref/heads/main"` | no |
+| resource\_packs\_gcp\_rev | n/a | `string` | `"refs/heads/main"` | no |
 | resource\_packs\_gcp\_url | n/a | `string` | `"https://github.com/humanitec-architecture/resource-packs-gcp.git"` | no |
 <!-- END_TF_DOCS -->

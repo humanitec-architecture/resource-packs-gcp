@@ -6,7 +6,7 @@ variable "name" {
 
 variable "resource_packs_gcp_rev" {
   type    = string
-  default = "ref/heads/main"
+  default = "refs/heads/main"
 }
 
 variable "resource_packs_gcp_url" {
