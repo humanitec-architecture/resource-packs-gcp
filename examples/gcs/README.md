@@ -1,5 +1,6 @@
 # Example: gcs resource based on Google Cloud Storage
 
+## Configuration
 This example configures a [gcs](https://developer.humanitec.com/platform-orchestrator/reference/resource-types/#gcs) Resource Definition using Google Cloud Storage, with two different access policies:
 
 * `basic-admin` (full access)
@@ -20,9 +21,31 @@ resources:
     class: basic-admin
 ```
 
+## Infrastructure setup
+The workload service account will be automatically assigned to the necessary role with the selected policy.
+
+```mermaid
+graph TD;
+  gcs["Google Cloud Storage"]
+  subgraph GKE Cluster
+    pod[workload pod]
+    service[Service Account]
+  end
+  service -- bind role on --> gcs
+  service --> pod
+  gcs --> pod
+```
+
+## Orchestrator setup
 The Resource Graph is using [delegator resources](https://developer.humanitec.com/platform-orchestrator/examples/resource-graph-patterns/#delegator-resource) to expose shared resources with different access policies.
 
-The workload service account will automatically be assigned the necessary GCP Service Account with the selected role bindings.
+```mermaid
+graph LR;
+  workload_1 --> delegator_1["delegator_1, resource_type: gcs", class: basic-read-only] --> shared.gcs_1["shared.gcs_1, resource_type: gcs"]
+  workload_2 --> delegator_2["delegator_2, resource_type: gcs, class: basic-admin"] --> shared.gcs_1
+  workload_2 --> shared.delegator_1["shared.delegator_1, resource_type: gcs, class: basic-read-only"]
+  workload_3 --> shared.delegator_1 --> shared.gcs_2["shared.gcs_2, resource_type: gcs"]
+```
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements

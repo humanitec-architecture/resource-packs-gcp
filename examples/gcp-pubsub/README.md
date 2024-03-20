@@ -1,8 +1,7 @@
 # Example: gcp-pubsub resource based on Google Cloud Pub/Sub
 
+## Configuration
 This example configures a [gcp-pubsub-topic](https://developer.humanitec.com/platform-orchestrator/reference/resource-types/#gcp-pubsub-topic) and a [gcp-pubsub-subscription](https://developer.humanitec.com/platform-orchestrator/reference/resource-types/#gcp-pubsub-subscription) Resource Definition using Google Cloud Pub/Sub.
-
-The Resource Graph is using [delegator resources](https://developer.humanitec.com/platform-orchestrator/examples/resource-graph-patterns/#delegator-resource) to expose shared resources with different access policies.
 
 Those Resource Definitions can be used in your Score file using:
 
@@ -39,7 +38,41 @@ resources:
       topic_name: ${resources['gcp-pubsub-topic.basic#shared.main-topic'].outputs.name}
 ```
 
-The workload service account will automatically be assigned the necessary GCP Service Account with the selected role bindings.
+## Infrastructure setup
+The workload service account will be automatically assigned to the necessary roles with the selected policies.
+
+```mermaid
+graph TD;
+  topic["GCP Pub/Sub topic"]
+  sub["GCP Pub/Sub subscription"]
+  topic_account["GCP Service account"]
+  sub_account["GCP Service account"]
+  subgraph GKE Cluster
+    topic_pod[workload pod]
+    topic_service[Service Account]
+    sub_pod[workload pod]
+    sub_service[Service Account]
+  end
+  topic_service --> topic_account -- bind role on --> topic
+  topic_service --> topic_pod
+  topic --> topic_pod
+  sub_service --> sub_account -- bind role on --> sub
+  sub_service --> sub_pod
+  sub --> sub_pod
+  sub --> topic
+
+```
+
+## Orchestrator setup
+The Resource Graph is using [delegator resources](https://developer.humanitec.com/platform-orchestrator/examples/resource-graph-patterns/#delegator-resource) to expose shared resources with different access policies.
+
+```mermaid
+graph LR;
+  workload_1 --> delegator_1["delegator_1, resource_type: gcp-pubsub-topic", class: basic-publisher] --> shared.gcp-pubsub-topic_1["shared.gcp-pubsub-topic_1, resource_type: gcp-pubsub-topic"]
+  workload_2 --> delegator_2["delegator_2, resource_type: gcp-pubsub-subscriber, class: basic-consumer"] --> shared.gcp-pubsub-subscriber_1["shared.gcp-pubsub-subscriber_1, resource_type: gcp-pubsub-subscriber"]
+  workload_2 --> shared.delegator_1["shared.delegator_1, resource_type: gcp-pubsub-subscriber, class: basic-consumer"]
+  workload_3 --> shared.delegator_1 --> shared.gcp-pubsub-subscriber_2["shared.gcp-pubsub-subscriber_2, resource_type: gcp-pubsub-subscriber"]
+```
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements

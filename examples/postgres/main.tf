@@ -20,6 +20,8 @@ resource "google_compute_global_address" "private_ip_address" {
   network       = data.google_compute_network.network.id
 }
 
+# There is a bug 
+# walkaround `gcloud services vpc-peerings update --network=htc-ref-arch-vpc --ranges=hum-rp-mysql-ex-private-ip-address --service=servicenetworking.googleapis.com --force`
 resource "google_service_networking_connection" "private_vpc_connection" {
   network                 = data.google_compute_network.network.id
   service                 = "servicenetworking.googleapis.com"
