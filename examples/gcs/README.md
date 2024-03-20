@@ -27,14 +27,12 @@ The workload service account will be automatically assigned to the necessary rol
 ```mermaid
 graph TD;
   gcs["Google Cloud Storage"]
-  policy["Google Cloud IAM Policy"]
-  role["Google Cloud IAM Role"]
-  subgraph EKS Cluster
+  subgraph GKE Cluster
     pod[workload pod]
     service[Service Account]
   end
-  policy --> gcs
-  policy --> role --> service --> pod
+  service -- bind role on --> gcs
+  service --> pod
   gcs --> pod
 ```
 

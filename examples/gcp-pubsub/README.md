@@ -1,46 +1,5 @@
 # Example: gcp-pubsub resource based on Google Cloud Pub/Sub
 
-This example configures a [gcp-pubsub-topic](https://developer.humanitec.com/platform-orchestrator/reference/resource-types/#gcp-pubsub-topic) and a [gcp-pubsub-subscription](https://developer.humanitec.com/platform-orchestrator/reference/resource-types/#gcp-pubsub-subscription) Resource Definition using Google Cloud Pub/Sub.
-
-The Resource Graph is using [delegator resources](https://developer.humanitec.com/platform-orchestrator/examples/resource-graph-patterns/#delegator-resource) to expose shared resources with different access policies.
-
-Those Resource Definitions can be used in your Score file using:
-
-```yaml
-# publishing workload
-containers:
-  app:
-    ...
-    variables:
-      TOPIC_NAME: ${resources.topic.name}
-resources:
-  ...
-  topic:
-    metadata:
-      annotations:
-        score.humanitec.io/resId: shared.main-topic
-    type: gcp-pubsub-topic
-    class: basic-publisher
-```
-
-```yaml
-# subscribing workload
-containers:
-  app:
-    ...
-    variables:
-      SUBSCRIPTION_NAME: ${resources.subscription.name}
-resources:
-  ...
-  subscription:
-    type: gcp-pubsub-subscription
-    class: basic-subscriber
-    params:
-      topic_name: ${resources['gcp-pubsub-topic.basic#shared.main-topic'].outputs.name}
-```
-
-The workload service account will automatically be assigned the necessary GCP Service Account with the selected role bindings.
-
 ## Configuration
 This example configures a [gcp-pubsub-topic](https://developer.humanitec.com/platform-orchestrator/reference/resource-types/#gcp-pubsub-topic) and a [gcp-pubsub-subscription](https://developer.humanitec.com/platform-orchestrator/reference/resource-types/#gcp-pubsub-subscription) Resource Definition using Google Cloud Pub/Sub.
 
@@ -85,24 +44,22 @@ The workload service account will be automatically assigned to the necessary rol
 ```mermaid
 graph TD;
   topic["GCP Pub/Sub topic"]
-  topic_policy["GCP Pub/Sub Publisher Policy"]
-  topic_role["GCP Pub/Sub Publisher Role"]
   sub["GCP Pub/Sub subscription"]
-  sub_policy["GCP Pub/Sub Subscriber Policy"]
-  sub_role["GCP Pub/Sub Subscriber Role"]
-  subgraph EKS Cluster
+  topic_account["GCP Service account"]
+  sub_account["GCP Service account"]
+  subgraph GKE Cluster
     topic_pod[workload pod]
     topic_service[Service Account]
     sub_pod[workload pod]
     sub_service[Service Account]
   end
+  topic_service --> topic_account -- bind role on --> topic
+  topic_service --> topic_pod
   topic --> topic_pod
-  topic_policy --> topic
-  topic_policy --> topic_role --> topic_service --> topic_pod
+  sub_service --> sub_account -- bind role on --> sub
+  sub_service --> sub_pod
   sub --> sub_pod
-  sub_policy --> sub
-  sub_policy --> sub_role --> sub_service --> sub_pod
-  topic --> sub
+  sub --> topic
 
 ```
 
