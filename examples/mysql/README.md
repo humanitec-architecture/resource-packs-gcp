@@ -63,6 +63,7 @@ graph LR;
 | Name | Source | Version |
 |------|--------|---------|
 | mysql | ../../humanitec-resource-defs/mysql/basic | n/a |
+| mysql\_instance | ../../humanitec-resource-defs/mysql-instance/basic | n/a |
 
 ## Resources
 
@@ -77,6 +78,7 @@ graph LR;
 | [humanitec_application.example](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/application) | resource |
 | [humanitec_resource_account.humanitec_provisioner](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_account) | resource |
 | [humanitec_resource_definition_criteria.mysql](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
+| [humanitec_resource_definition_criteria.mysql_instance](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
 | [google_compute_network.network](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/compute_network) | data source |
 
 ## Inputs

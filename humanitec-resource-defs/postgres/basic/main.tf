@@ -1,7 +1,7 @@
 resource "humanitec_resource_definition" "main" {
   driver_type = "humanitec/terraform"
-  id          = "${var.prefix}cloudsql-postgres"
-  name        = "${var.prefix}cloudsql-postgres"
+  id          = "${var.prefix}cloudsql-postgres-basic"
+  name        = "${var.prefix}cloudsql-postgres-basic"
   type        = "postgres"
 
   driver_account = var.driver_account
@@ -25,15 +25,13 @@ resource "humanitec_resource_definition" "main" {
         name    = var.name
         project = var.project
         region  = var.region
-        prefix  = var.prefix
         app_id  = "$${context.app.id}"
         env_id  = "$${context.env.id}"
         res_id  = "$${context.res.id}"
 
-        database_version = var.database_version
-        tier             = var.tier
-        private_network  = var.private_network
-        port             = 5432
+        host     = "$${resources['${var.instance_resource}'].outputs.host}"
+        port     = "$${resources['${var.instance_resource}'].outputs.port}"
+        instance = "$${resources['${var.instance_resource}'].outputs.instance}"
       }
     })
   }
