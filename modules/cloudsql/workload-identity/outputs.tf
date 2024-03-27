@@ -2,7 +2,7 @@
 
 output "host" {
   description = "The IP address the instance is available on."
-  value       = var.host
+  value       = "localhost" # workloads should connect to the Cloud SQL instance via the Cloud SQL Proxy
 }
 
 output "name" {
@@ -12,16 +12,26 @@ output "name" {
 
 output "port" {
   description = "The port on the host that the instance is available on."
-  value       = var.port
+  value       = random_integer.proxy_port.result
 }
 
 output "username" {
   description = "The user that the workload should use to connect to the database."
-  value       = google_sql_user.main.name
+  value       = local.username
 }
 
 output "password" {
   description = "The password for the user."
-  value       = google_sql_user.main.password
+  value       = ""
   sensitive   = true
+}
+
+output "manifests" {
+  description = "The Kubernetes manifests that should be applied to the cluster to connect to the database."
+  value       = local.manifests
+}
+
+output "service_account_id" {
+  description = "Name of the service account that the workload should use to connect to the database."
+  value       = google_service_account.main.name
 }

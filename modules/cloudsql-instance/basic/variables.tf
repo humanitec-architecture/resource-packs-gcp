@@ -1,3 +1,8 @@
+variable "prefix" {
+  type        = string
+  description = "Prefix for all resources"
+}
+
 variable "project" {
   description = "GCP project ID"
   type        = string
@@ -20,20 +25,25 @@ variable "res_id" {
   type = string
 }
 
-variable "host" {
-  type        = string
-  description = "The host of the Cloud SQL instance."
-}
-
-variable "instance" {
-  type        = string
-  description = "The name of the Cloud SQL instance."
-}
-
 variable "name" {
   type        = string
   description = "Resource name"
   default     = ""
+}
+
+variable "database_version" {
+  type        = string
+  description = "The MySQL, PostgreSQL or SQL Server version to use."
+}
+
+variable "tier" {
+  type        = string
+  description = "The machine type to use."
+}
+
+variable "private_network" {
+  type        = string
+  description = "The VPC network from which the Cloud SQL instance is accessible for private IP."
 }
 
 variable "port" {

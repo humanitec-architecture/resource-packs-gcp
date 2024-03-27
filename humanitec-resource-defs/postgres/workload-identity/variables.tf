@@ -39,6 +39,11 @@ variable "name" {
   default     = ""
 }
 
+variable "policy_resource_class" {
+  type        = string
+  description = "The class of the gcp-iam-policy-binding resource to be co-provisioned."
+}
+
 variable "instance_resource" {
   description = "Identifier of the PostgreSQL instance resource."
   type        = string

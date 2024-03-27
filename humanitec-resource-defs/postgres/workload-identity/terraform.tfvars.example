@@ -11,6 +11,9 @@ instance_resource = ""
 # Resource name (can contain placeholders like ${context.app.id})
 name = ""
 
+# The class of the gcp-iam-policy-binding resource to be co-provisioned.
+policy_resource_class = ""
+
 # Prefix for all resources
 prefix = ""
 
