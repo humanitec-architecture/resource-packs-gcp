@@ -80,12 +80,14 @@ graph LR;
 | Name | Version |
 |------|---------|
 | terraform | >= 1.3.0 |
+| google | ~> 5.17 |
 | humanitec | ~> 1.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
+| google | ~> 5.17 |
 | humanitec | ~> 1.0 |
 
 ## Modules
@@ -106,7 +108,11 @@ graph LR;
 
 | Name | Type |
 |------|------|
+| [google_project_iam_member.humanitec_provisioner](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_member) | resource |
+| [google_service_account.humanitec_provisioner](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/service_account) | resource |
+| [google_service_account_key.humanitec_provisioner](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/service_account_key) | resource |
 | [humanitec_application.example](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/application) | resource |
+| [humanitec_resource_account.humanitec_provisioner](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_account) | resource |
 | [humanitec_resource_definition_criteria.gcp_service_account_workload](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
 | [humanitec_resource_definition_criteria.gps_basic_subscriber](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
 | [humanitec_resource_definition_criteria.gpt_basic_publisher](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
@@ -121,7 +127,6 @@ graph LR;
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| credentials | GCP credentials | `string` | n/a | yes |
 | project | GCP project ID | `string` | n/a | yes |
 | name | Name of the example application | `string` | `"hum-rp-gcp-pubsub-example"` | no |
 | prefix | n/a | `string` | `"hum-rp-gcp-pubsub-ex-"` | no |

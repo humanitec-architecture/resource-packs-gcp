@@ -13,11 +13,6 @@ variable "region" {
   type        = string
 }
 
-variable "credentials" {
-  description = "GCP credentials"
-  type        = string
-}
-
 variable "app_id" {
   type = string
 }

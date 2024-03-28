@@ -28,7 +28,6 @@
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | app\_id | n/a | `string` | n/a | yes |
-| credentials | GCP credentials | `string` | n/a | yes |
 | database\_version | The MySQL, PostgreSQL or SQL Server version to use. | `string` | n/a | yes |
 | env\_id | n/a | `string` | n/a | yes |
 | port | The port for the database (needs to match the database type) | `number` | n/a | yes |

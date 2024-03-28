@@ -22,13 +22,14 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| credentials | GCP credentials | `string` | n/a | yes |
 | database\_version | The MySQL, PostgreSQL or SQL Server version to use. | `string` | n/a | yes |
+| driver\_account | The ID of the Resource Account which should be used. | `string` | n/a | yes |
 | prefix | Prefix for all resources | `string` | n/a | yes |
 | private\_network | The VPC network from which the Cloud SQL instance is accessible for private IP. | `string` | n/a | yes |
 | project | n/a | `string` | n/a | yes |
 | region | GCP region | `string` | n/a | yes |
 | tier | The machine type to use. | `string` | n/a | yes |
+| append\_logs\_to\_error | Append Terraform logs to error messages. | `bool` | `false` | no |
 | name | Resource name (can contain placeholders like ${context.app.id}) | `string` | `""` | no |
 | resource\_packs\_gcp\_rev | n/a | `string` | `"ref/heads/main"` | no |
 | resource\_packs\_gcp\_url | n/a | `string` | `"https://github.com/humanitec-architecture/resource-packs-gcp.git"` | no |

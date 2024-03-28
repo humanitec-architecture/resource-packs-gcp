@@ -3,11 +3,6 @@ variable "project" {
   type        = string
 }
 
-variable "credentials" {
-  description = "GCP credentials"
-  type        = string
-}
-
 variable "resource_packs_gcp_url" {
   description = "GCP Resource Pack git url"
   type        = string

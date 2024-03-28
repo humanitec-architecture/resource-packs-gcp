@@ -3,11 +3,6 @@ variable "project" {
   type        = string
 }
 
-variable "credentials" {
-  description = "GCP credentials"
-  type        = string
-}
-
 variable "location" {
   description = "The location of the bucket"
   type        = string

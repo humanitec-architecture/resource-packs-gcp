@@ -25,7 +25,6 @@
 | alternative\_location\_id | n/a | `string` | n/a | yes |
 | app\_id | n/a | `string` | n/a | yes |
 | authorized\_network | n/a | `string` | n/a | yes |
-| credentials | GCP credentials | `string` | n/a | yes |
 | env\_id | n/a | `string` | n/a | yes |
 | location\_id | n/a | `string` | n/a | yes |
 | memory\_size\_gb | n/a | `number` | n/a | yes |

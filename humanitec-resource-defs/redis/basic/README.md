@@ -24,12 +24,13 @@
 |------|-------------|------|---------|:--------:|
 | alternative\_location\_id | n/a | `string` | n/a | yes |
 | authorized\_network | n/a | `string` | n/a | yes |
-| credentials | GCP credentials | `string` | n/a | yes |
+| driver\_account | The ID of the Resource Account which should be used. | `string` | n/a | yes |
 | location\_id | n/a | `string` | n/a | yes |
 | memory\_size\_gb | n/a | `number` | n/a | yes |
 | prefix | Prefix for all resources | `string` | n/a | yes |
 | project | n/a | `string` | n/a | yes |
 | region | GCP region | `string` | n/a | yes |
+| append\_logs\_to\_error | Append Terraform logs to error messages. | `bool` | `false` | no |
 | auth\_enabled | n/a | `bool` | `false` | no |
 | display\_name | Resource name (can contain placeholders like ${context.app.id}) | `string` | `""` | no |
 | name | Resource name (can contain placeholders like ${context.app.id}) | `string` | `""` | no |

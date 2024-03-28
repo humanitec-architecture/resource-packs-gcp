@@ -7,7 +7,6 @@ resource "humanitec_resource_definition" "main" {
   driver_inputs = {
     values_string = jsonencode({
       templates = {
-        # cookie    = ""
         init    = ""
         outputs = <<EOL
 update:

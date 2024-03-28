@@ -29,11 +29,6 @@ variable "region" {
   type        = string
 }
 
-variable "credentials" {
-  description = "GCP credentials"
-  type        = string
-}
-
 variable "private_network" {
   type        = string
   description = "The VPC network from which the Cloud SQL instance is accessible for private IP."

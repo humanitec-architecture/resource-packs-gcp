@@ -13,17 +13,23 @@ variable "resource_packs_gcp_url" {
   default = "https://github.com/humanitec-architecture/resource-packs-gcp.git"
 }
 
+variable "append_logs_to_error" {
+  description = "Append Terraform logs to error messages."
+  type        = bool
+  default     = false
+}
+
+variable "driver_account" {
+  description = "The ID of the Resource Account which should be used."
+  type        = string
+}
+
 variable "project" {
   type = string
 }
 
 variable "region" {
   description = "GCP region"
-  type        = string
-}
-
-variable "credentials" {
-  description = "GCP credentials"
   type        = string
 }
 

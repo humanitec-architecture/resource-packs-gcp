@@ -1,12 +1,16 @@
 alternative_location_id = ""
-auth_enabled            = false
-authorized_network      = ""
 
-# GCP credentials
-credentials = ""
+# Append Terraform logs to error messages.
+append_logs_to_error = false
+
+auth_enabled       = false
+authorized_network = ""
 
 # Resource name (can contain placeholders like ${context.app.id})
 display_name = ""
+
+# The ID of the Resource Account which should be used.
+driver_account = ""
 
 location_id    = ""
 memory_size_gb = ""

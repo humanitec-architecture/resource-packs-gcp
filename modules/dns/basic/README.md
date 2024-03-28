@@ -23,7 +23,6 @@
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | app\_id | n/a | `string` | n/a | yes |
-| credentials | GCP credentials | `string` | n/a | yes |
 | env\_id | n/a | `string` | n/a | yes |
 | managed\_zone | The name of the zone in which this record set will reside. | `string` | n/a | yes |
 | managed\_zone\_dns\_name | The DNS name of the managed zone. | `string` | n/a | yes |

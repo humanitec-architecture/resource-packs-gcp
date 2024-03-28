@@ -1,7 +1,4 @@
 
-# GCP credentials
-credentials = ""
-
 # The location of the bucket
 location = ""
 

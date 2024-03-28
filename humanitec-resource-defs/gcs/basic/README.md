@@ -22,10 +22,11 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| credentials | GCP credentials | `string` | n/a | yes |
+| driver\_account | The ID of the Resource Account which should be used. | `string` | n/a | yes |
 | location | The location of the bucket | `string` | n/a | yes |
 | prefix | Prefix for all resources | `string` | n/a | yes |
 | project | GCP project ID | `string` | n/a | yes |
+| append\_logs\_to\_error | Append Terraform logs to error messages. | `bool` | `false` | no |
 | force\_destroy | Whether to force destroy the bucket when deleting | `bool` | `false` | no |
 | name | Resource name (can contain placeholders like ${context.app.id}) | `string` | `""` | no |
 | resource\_packs\_gcp\_rev | GCP Resource Pack git ref | `string` | `"refs/heads/main"` | no |

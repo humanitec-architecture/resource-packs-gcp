@@ -1,7 +1,4 @@
 
-# GCP credentials
-credentials = ""
-
 # The name of the zone in which this record set will reside.
 managed_zone = ""
 
