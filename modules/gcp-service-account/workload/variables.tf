@@ -26,11 +26,6 @@ variable "project" {
   type        = string
 }
 
-variable "credentials" {
-  description = "GCP credentials"
-  type        = string
-}
-
 variable "namespace" {
   description = "k8s namespace"
   type        = string

@@ -24,11 +24,6 @@ variable "project" {
   type        = string
 }
 
-variable "credentials" {
-  description = "GCP credentials"
-  type        = string
-}
-
 variable "topic_name" {
   description = "Name of the topic resource"
   type        = string

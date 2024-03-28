@@ -5,10 +5,11 @@ module "pubsub_topic_basic" {
 
   resource_packs_gcp_url = var.resource_packs_gcp_url
   resource_packs_gcp_rev = var.resource_packs_gcp_rev
+  append_logs_to_error   = true
+  driver_account         = humanitec_resource_account.humanitec_provisioner.id
 
-  project     = var.project
-  credentials = var.credentials
-  prefix      = var.prefix
+  project = var.project
+  prefix  = var.prefix
 }
 
 resource "humanitec_resource_definition_criteria" "pubsub_topic_basic" {

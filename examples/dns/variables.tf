@@ -8,11 +8,6 @@ variable "region" {
   type        = string
 }
 
-variable "credentials" {
-  description = "GCP credentials"
-  type        = string
-}
-
 variable "managed_zone" {
   description = "The name of the zone in which this record set will reside."
   type        = string

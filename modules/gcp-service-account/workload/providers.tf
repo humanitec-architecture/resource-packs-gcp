@@ -10,8 +10,7 @@ terraform {
 }
 
 provider "google" {
-  project     = var.project
-  credentials = var.credentials
+  project = var.project
 
   default_labels = {
     "humanitec"  = "true"

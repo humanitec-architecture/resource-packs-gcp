@@ -1,6 +1,9 @@
 
-# GCP credentials
-credentials = ""
+# Append Terraform logs to error messages.
+append_logs_to_error = false
+
+# The ID of the Resource Account which should be used.
+driver_account = ""
 
 # Whether to force destroy the bucket when deleting
 force_destroy = false

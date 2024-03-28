@@ -23,7 +23,6 @@
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | app\_id | n/a | `string` | n/a | yes |
-| credentials | GCP credentials | `string` | n/a | yes |
 | env\_id | n/a | `string` | n/a | yes |
 | prefix | n/a | `string` | n/a | yes |
 | project | GCP project ID | `string` | n/a | yes |

@@ -22,12 +22,13 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| credentials | GCP credentials | `string` | n/a | yes |
+| driver\_account | The ID of the Resource Account which should be used. | `string` | n/a | yes |
 | managed\_zone | The name of the zone in which this record set will reside. | `string` | n/a | yes |
 | managed\_zone\_dns\_name | The DNS name of the managed zone. | `string` | n/a | yes |
 | prefix | n/a | `string` | n/a | yes |
 | project | n/a | `string` | n/a | yes |
 | region | GCP region | `string` | n/a | yes |
+| append\_logs\_to\_error | Append Terraform logs to error messages. | `bool` | `false` | no |
 | resource\_packs\_gcp\_rev | n/a | `string` | `"ref/heads/main"` | no |
 | resource\_packs\_gcp\_url | n/a | `string` | `"https://github.com/humanitec-architecture/resource-packs-gcp.git"` | no |
 

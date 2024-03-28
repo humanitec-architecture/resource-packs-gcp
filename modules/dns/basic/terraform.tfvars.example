@@ -1,8 +1,4 @@
 app_id = ""
-
-# GCP credentials
-credentials = ""
-
 env_id = ""
 
 # The IPv4 address that the DNS name should resolve to.

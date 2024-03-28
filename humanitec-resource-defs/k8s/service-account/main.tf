@@ -5,15 +5,8 @@ resource "humanitec_resource_definition" "main" {
 
   driver_type = "humanitec/template"
   driver_inputs = {
-    secrets_string = jsonencode({
-      templates = {
-        # outputs = ""
-      }
-    })
-
     values_string = jsonencode({
       templates = {
-        # cookie    = ""
         init      = ""
         manifests = <<EOL
 serviceaccount.yaml:

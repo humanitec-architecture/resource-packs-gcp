@@ -23,7 +23,6 @@
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | app\_id | n/a | `string` | n/a | yes |
-| credentials | GCP credentials | `string` | n/a | yes |
 | env\_id | n/a | `string` | n/a | yes |
 | location | The location of the bucket | `string` | n/a | yes |
 | prefix | Prefix for all resources | `string` | n/a | yes |

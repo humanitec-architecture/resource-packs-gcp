@@ -2,9 +2,6 @@ alternative_location_id = ""
 auth_enabled            = ""
 authorized_network      = ""
 
-# GCP credentials
-credentials = ""
-
 # Humanitec API host url
 humanitec_host = "https://api.humanitec.io"
 

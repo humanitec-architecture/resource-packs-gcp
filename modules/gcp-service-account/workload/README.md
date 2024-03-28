@@ -29,7 +29,6 @@
 |------|-------------|------|---------|:--------:|
 | app\_id | n/a | `string` | n/a | yes |
 | bindings | List of additional bindings to grant to the service account | `set(string)` | n/a | yes |
-| credentials | GCP credentials | `string` | n/a | yes |
 | env\_id | n/a | `string` | n/a | yes |
 | namespace | k8s namespace | `string` | n/a | yes |
 | prefix | Prefix for all resources | `string` | n/a | yes |

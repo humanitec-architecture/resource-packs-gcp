@@ -26,11 +26,6 @@ variable "project" {
   type        = string
 }
 
-variable "credentials" {
-  description = "GCP credentials"
-  type        = string
-}
-
 variable "force_destroy" {
   description = "Whether to force destroy the bucket when deleting"
   type        = bool

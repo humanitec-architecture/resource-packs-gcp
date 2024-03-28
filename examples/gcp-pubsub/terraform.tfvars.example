@@ -1,7 +1,4 @@
 
-# GCP credentials
-credentials = ""
-
 # Name of the example application
 name = "hum-rp-gcp-pubsub-example"
 

@@ -3,9 +3,6 @@ app_id                  = ""
 auth_enabled            = false
 authorized_network      = ""
 
-# GCP credentials
-credentials = ""
-
 # Resource display name
 display_name = ""
 
