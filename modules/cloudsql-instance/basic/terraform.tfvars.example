@@ -1,0 +1,29 @@
+app_id = ""
+
+# The MySQL, PostgreSQL or SQL Server version to use.
+database_version = ""
+
+env_id = ""
+
+# Resource name
+name = ""
+
+# The port for the database (needs to match the database type)
+port = ""
+
+# Prefix for all resources
+prefix = ""
+
+# The VPC network from which the Cloud SQL instance is accessible for private IP.
+private_network = ""
+
+# GCP project ID
+project = ""
+
+# GCP region
+region = ""
+
+res_id = ""
+
+# The machine type to use.
+tier = ""

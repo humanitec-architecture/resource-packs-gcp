@@ -62,7 +62,12 @@ graph LR;
 
 | Name | Source | Version |
 |------|--------|---------|
-| postgres | ../../humanitec-resource-defs/postgres/basic | n/a |
+| gcp\_service\_account\_workload | ../../humanitec-resource-defs/gcp-service-account/workload | n/a |
+| iam\_role\_binding\_service\_account\_workload\_identity | ../../humanitec-resource-defs/gcp-iam-policy-binding/basic | n/a |
+| k8s\_service\_account | ../../humanitec-resource-defs/k8s/service-account | n/a |
+| postgres | ../../humanitec-resource-defs/postgres/workload-identity | n/a |
+| postgres\_instance | ../../humanitec-resource-defs/postgres-instance/basic | n/a |
+| workload | ../../humanitec-resource-defs/workload/service-account | n/a |
 
 ## Resources
 
@@ -76,7 +81,12 @@ graph LR;
 | [google_service_networking_connection.private_vpc_connection](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/service_networking_connection) | resource |
 | [humanitec_application.example](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/application) | resource |
 | [humanitec_resource_account.humanitec_provisioner](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_account) | resource |
+| [humanitec_resource_definition_criteria.gcp_service_account_workload](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
+| [humanitec_resource_definition_criteria.iam_role_binding_service_account_workload_identity](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
+| [humanitec_resource_definition_criteria.k8s_service_account](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
 | [humanitec_resource_definition_criteria.postgres](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
+| [humanitec_resource_definition_criteria.postgres_instance](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
+| [humanitec_resource_definition_criteria.workload](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
 | [google_compute_network.network](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/compute_network) | data source |
 
 ## Inputs

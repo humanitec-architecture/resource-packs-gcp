@@ -20,14 +20,14 @@ variable "res_id" {
   type = string
 }
 
-variable "host" {
-  type        = string
-  description = "The host of the Cloud SQL instance."
-}
-
 variable "instance" {
   type        = string
   description = "The name of the Cloud SQL instance."
+}
+
+variable "instance_connection_name" {
+  type        = string
+  description = "The connection name of the Cloud SQL instance."
 }
 
 variable "name" {

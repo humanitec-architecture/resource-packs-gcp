@@ -24,6 +24,17 @@ resource "google_pubsub_topic_iam_member" "main" {
   member = "serviceAccount:${google_service_account.main[0].email}"
 }
 
+resource "google_service_account_iam_member" "main" {
+  for_each = {
+    for g in local.parsed_bindings :
+    join("/", [g["service_account_id"], g["role"]]) => g if g["type"] == "service_account"
+  }
+
+  service_account_id = each.value["service_account_id"]
+  role               = each.value["role"]
+  member             = "serviceAccount:${google_service_account.main[0].email}"
+}
+
 resource "google_storage_bucket_iam_member" "main" {
   for_each = {
     for g in local.parsed_bindings :
