@@ -39,17 +39,7 @@ variable "name" {
   default     = ""
 }
 
-variable "database_version" {
+variable "instance_resource" {
+  description = "Identifier of the PostgreSQL instance resource."
   type        = string
-  description = "The MySQL, PostgreSQL or SQL Server version to use."
-}
-
-variable "tier" {
-  type        = string
-  description = "The machine type to use."
-}
-
-variable "private_network" {
-  type        = string
-  description = "The VPC network from which the Cloud SQL instance is accessible for private IP."
 }

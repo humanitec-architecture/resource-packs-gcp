@@ -1,11 +1,11 @@
 app_id = ""
 env_id = ""
 
-# The host of the Cloud SQL instance.
-host = ""
-
 # The name of the Cloud SQL instance.
 instance = ""
+
+# The connection name of the Cloud SQL instance.
+instance_connection_name = ""
 
 # Resource name
 name = ""

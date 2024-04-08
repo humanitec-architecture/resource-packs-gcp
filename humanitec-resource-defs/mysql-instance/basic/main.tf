@@ -1,14 +1,14 @@
 resource "humanitec_resource_definition" "main" {
   driver_type = "humanitec/terraform"
-  id          = "${var.prefix}cloudsql-mysql-basic"
-  name        = "${var.prefix}cloudsql-mysql-basic"
-  type        = "mysql"
+  id          = "${var.prefix}cloudsql-mysql-instance-basic"
+  name        = "${var.prefix}cloudsql-mysql-instance-basic"
+  type        = "mysql-instance"
 
   driver_account = var.driver_account
   driver_inputs = {
     values_string = jsonencode({
       source = {
-        path = "modules/cloudsql/basic"
+        path = "modules/cloudsql-instance/basic"
         rev  = var.resource_packs_gcp_rev
         url  = var.resource_packs_gcp_url
       }
@@ -25,13 +25,15 @@ resource "humanitec_resource_definition" "main" {
         name    = var.name
         project = var.project
         region  = var.region
+        prefix  = var.prefix
         app_id  = "$${context.app.id}"
         env_id  = "$${context.env.id}"
         res_id  = "$${context.res.id}"
 
-        host     = "$${resources['${var.instance_resource}'].outputs.host}"
-        port     = "$${resources['${var.instance_resource}'].outputs.port}"
-        instance = "$${resources['${var.instance_resource}'].outputs.instance}"
+        database_version = var.database_version
+        tier             = var.tier
+        private_network  = var.private_network
+        port             = 3306
       }
     })
   }

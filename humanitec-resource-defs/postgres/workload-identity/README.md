@@ -24,6 +24,7 @@
 |------|-------------|------|---------|:--------:|
 | driver\_account | The ID of the Resource Account which should be used. | `string` | n/a | yes |
 | instance\_resource | Identifier of the PostgreSQL instance resource. | `string` | n/a | yes |
+| policy\_resource\_class | The class of the gcp-iam-policy-binding resource to be co-provisioned. | `string` | n/a | yes |
 | prefix | Prefix for all resources | `string` | n/a | yes |
 | project | n/a | `string` | n/a | yes |
 | region | GCP region | `string` | n/a | yes |

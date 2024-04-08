@@ -1,6 +1,7 @@
 # Example: mysql resource based on GCP CloudSQL
 
 ## Configuration
+
 This example configures a [mysql](https://developer.humanitec.com/platform-orchestrator/reference/resource-types/#mysql) Resource Definition using GCP CloudSQL. A workload using the `mysql` resource to create database instance looks like:
 
 ```yaml
@@ -19,16 +20,21 @@ resources:
     type: mysql
 ```
 
+This example uses username and password authentication, checkout [../postgres/README.md](postgres) for an example using CloudSQL IAM Authentication.
+
 ## Infrastructure setup
 
 ```mermaid
 graph TD;
   subgraph VPC
-    database["MySQl GCP CloudSQL"]
+    subgraph server["MySQL CloudSQL Database Instance"]
+      database["CloudSQL Database"]
+      user["CloudSQL User"]
+    end
     subgraph GKE Cluster
       pod[workload pod]
+      pod -- CloudSQL User with password --> database
     end
-    database --> pod
   end
 ```
 
@@ -36,10 +42,13 @@ graph TD;
 
 ```mermaid
 graph LR;
-  workload_1 --> db_1["db_1, resource_type: mysql"]
-  workload_2 --> db_2["db_2, resource_type: mysql"]
-  workload_2 --> shared.db_1["shared.db_1, resource_type: mysql"]
-  workload_3 --> shared.db_1["shared.db_1, resource_type: mysql"]  
+    workload_1 --> db_1["db_1, resource_type: mysql"]
+    workload_2 --> db_2["db_2, resource_type: mysql"]
+    workload_2 --> shared.db_1["shared.db_1, resource_type: mysql"]
+    workload_3 --> shared.db_1["shared.db_1, resource_type: mysql"]
+    db_1 --> server["main-mysql, resource_type: mysql-instance"]
+    db_2 --> server
+    shared.db_1 --> server
 ```
 
 <!-- BEGIN_TF_DOCS -->
@@ -63,6 +72,7 @@ graph LR;
 | Name | Source | Version |
 |------|--------|---------|
 | mysql | ../../humanitec-resource-defs/mysql/basic | n/a |
+| mysql\_instance | ../../humanitec-resource-defs/mysql-instance/basic | n/a |
 
 ## Resources
 
@@ -77,6 +87,7 @@ graph LR;
 | [humanitec_application.example](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/application) | resource |
 | [humanitec_resource_account.humanitec_provisioner](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_account) | resource |
 | [humanitec_resource_definition_criteria.mysql](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
+| [humanitec_resource_definition_criteria.mysql_instance](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
 | [google_compute_network.network](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/compute_network) | data source |
 
 ## Inputs
