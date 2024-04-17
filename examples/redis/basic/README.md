@@ -1,6 +1,7 @@
 # Example: redis resource based on GCP Memorystore
 
 ## Configuration
+
 This example configures a [redis](https://developer.humanitec.com/platform-orchestrator/reference/resource-types/#redis) Resource Definition using GCP Memorystore. A workload using the `redis` resource to create redis cluster looks like:
 
 ```yaml
@@ -43,8 +44,10 @@ graph LR;
   workload_3 --> shared.cache_1["shared.cache_1, resource_type: redis"]
 ```
 
+## Terraform docs
+
 <!-- BEGIN_TF_DOCS -->
-## Requirements
+### Requirements
 
 | Name | Version |
 |------|---------|
@@ -52,20 +55,20 @@ graph LR;
 | google | ~> 5.17 |
 | humanitec | ~> 1.0 |
 
-## Providers
+### Providers
 
 | Name | Version |
 |------|---------|
 | google | ~> 5.17 |
 | humanitec | ~> 1.0 |
 
-## Modules
+### Modules
 
 | Name | Source | Version |
 |------|--------|---------|
 | redis | ../../../humanitec-resource-defs/redis/basic | n/a |
 
-## Resources
+### Resources
 
 | Name | Type |
 |------|------|
@@ -76,7 +79,7 @@ graph LR;
 | [humanitec_resource_account.humanitec_provisioner](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_account) | resource |
 | [humanitec_resource_definition_criteria.redis](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
 
-## Inputs
+### Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|

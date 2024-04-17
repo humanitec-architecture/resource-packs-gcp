@@ -1,24 +1,24 @@
 <!-- BEGIN_TF_DOCS -->
-## Requirements
+### Requirements
 
 | Name | Version |
 |------|---------|
 | terraform | >= 1.3.0 |
 | google | ~> 5.17 |
 
-## Providers
+### Providers
 
 | Name | Version |
 |------|---------|
 | google | ~> 5.17 |
 
-## Resources
+### Resources
 
 | Name | Type |
 |------|------|
 | [google_dns_record_set.main](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/dns_record_set) | resource |
 
-## Inputs
+### Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
@@ -34,7 +34,7 @@
 | ipv6\_address | The IPv6 address that the DNS name should resolve to. | `string` | `""` | no |
 | name | A valid fully qualified domain name that the DNS name should resolve to. | `string` | `""` | no |
 
-## Outputs
+### Outputs
 
 | Name | Description |
 |------|-------------|

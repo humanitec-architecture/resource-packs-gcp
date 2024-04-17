@@ -1,5 +1,5 @@
 <!-- BEGIN_TF_DOCS -->
-## Requirements
+### Requirements
 
 | Name | Version |
 |------|---------|
@@ -7,14 +7,14 @@
 | google | ~> 5.17 |
 | random | ~> 3.5 |
 
-## Providers
+### Providers
 
 | Name | Version |
 |------|---------|
 | google | ~> 5.17 |
 | random | ~> 3.5 |
 
-## Resources
+### Resources
 
 | Name | Type |
 |------|------|
@@ -25,7 +25,7 @@
 | [random_integer.proxy_port](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/integer) | resource |
 | [random_string.service_account_suffix](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string) | resource |
 
-## Inputs
+### Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
@@ -39,7 +39,7 @@
 | res\_id | n/a | `string` | n/a | yes |
 | name | Resource name | `string` | `""` | no |
 
-## Outputs
+### Outputs
 
 | Name | Description |
 |------|-------------|
