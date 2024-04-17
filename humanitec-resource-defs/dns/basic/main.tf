@@ -22,14 +22,13 @@ resource "humanitec_resource_definition" "main" {
       }
 
       variables = {
-        project               = var.project
-        region                = var.region
-        app_id                = "$${context.app.id}"
-        env_id                = "$${context.env.id}"
-        res_id                = "$${context.res.id}"
-        managed_zone          = var.managed_zone
-        managed_zone_dns_name = var.managed_zone_dns_name
-        subdomain             = "$${context.app.id}-$${context.env.id}"
+        project      = var.project
+        region       = var.region
+        app_id       = "$${context.app.id}"
+        env_id       = "$${context.env.id}"
+        res_id       = "$${context.res.id}"
+        managed_zone = var.managed_zone
+        subdomain    = "$${context.app.id}-$${context.env.id}"
       }
     })
   }

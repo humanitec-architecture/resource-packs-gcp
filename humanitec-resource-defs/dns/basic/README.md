@@ -24,7 +24,6 @@
 |------|-------------|------|---------|:--------:|
 | driver\_account | The ID of the Resource Account which should be used. | `string` | n/a | yes |
 | managed\_zone | The name of the zone in which this record set will reside. | `string` | n/a | yes |
-| managed\_zone\_dns\_name | The DNS name of the managed zone. | `string` | n/a | yes |
 | prefix | n/a | `string` | n/a | yes |
 | project | n/a | `string` | n/a | yes |
 | region | GCP region | `string` | n/a | yes |

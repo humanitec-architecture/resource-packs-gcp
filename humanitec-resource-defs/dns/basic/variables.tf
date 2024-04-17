@@ -36,8 +36,3 @@ variable "managed_zone" {
   description = "The name of the zone in which this record set will reside."
   type        = string
 }
-
-variable "managed_zone_dns_name" {
-  description = "The DNS name of the managed zone."
-  type        = string
-}

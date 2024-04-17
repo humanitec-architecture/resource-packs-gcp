@@ -4,19 +4,20 @@
 | Name | Version |
 |------|---------|
 | terraform | >= 1.3.0 |
-| google | ~> 5.17 |
+| google | ~> 5.26 |
 
 ### Providers
 
 | Name | Version |
 |------|---------|
-| google | ~> 5.17 |
+| google | ~> 5.26 |
 
 ### Resources
 
 | Name | Type |
 |------|------|
 | [google_dns_record_set.main](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/dns_record_set) | resource |
+| [google_dns_managed_zone.main](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/dns_managed_zone) | data source |
 
 ### Inputs
 
@@ -25,7 +26,6 @@
 | app\_id | n/a | `string` | n/a | yes |
 | env\_id | n/a | `string` | n/a | yes |
 | managed\_zone | The name of the zone in which this record set will reside. | `string` | n/a | yes |
-| managed\_zone\_dns\_name | The DNS name of the managed zone. | `string` | n/a | yes |
 | project | GCP project ID | `string` | n/a | yes |
 | region | GCP region | `string` | n/a | yes |
 | res\_id | n/a | `string` | n/a | yes |

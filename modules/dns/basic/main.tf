@@ -1,7 +1,6 @@
-# Disabled due to https://github.com/hashicorp/terraform-provider-google/issues/16832
-# data "google_dns_managed_zone" "main" {
-#   name = var.managed_zone
-# }
+data "google_dns_managed_zone" "main" {
+  name = var.managed_zone
+}
 
 locals {
   types   = ["A", "AAAA", "CNAME"]
@@ -13,11 +12,8 @@ locals {
 }
 
 resource "google_dns_record_set" "main" {
-  # name         = "${var.subdomain}.${data.google_dns_managed_zone.main.dns_name}"
-  # managed_zone = data.google_dns_managed_zone.main.name
-
-  name         = "${var.subdomain}.${var.managed_zone_dns_name}"
-  managed_zone = var.managed_zone
+  name         = "${var.subdomain}.${data.google_dns_managed_zone.main.dns_name}"
+  managed_zone = data.google_dns_managed_zone.main.name
   type         = local.type
   ttl          = 300
 

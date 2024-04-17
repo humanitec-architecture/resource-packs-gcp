@@ -13,11 +13,6 @@ variable "managed_zone" {
   type        = string
 }
 
-variable "managed_zone_dns_name" {
-  description = "The DNS name of the managed zone."
-  type        = string
-}
-
 variable "name" {
   description = "Name of the example application"
   type        = string

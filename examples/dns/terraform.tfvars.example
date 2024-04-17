@@ -2,9 +2,6 @@
 # The name of the zone in which this record set will reside.
 managed_zone = ""
 
-# The DNS name of the managed zone.
-managed_zone_dns_name = ""
-
 # Name of the example application
 name = "hum-rp-dns-example"
 

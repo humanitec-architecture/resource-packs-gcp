@@ -86,7 +86,6 @@ graph LR;
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | managed\_zone | The name of the zone in which this record set will reside. | `string` | n/a | yes |
-| managed\_zone\_dns\_name | The DNS name of the managed zone. | `string` | n/a | yes |
 | project | GCP project ID | `string` | n/a | yes |
 | region | GCP region | `string` | n/a | yes |
 | name | Name of the example application | `string` | `"hum-rp-dns-example"` | no |
