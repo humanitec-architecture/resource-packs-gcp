@@ -1,3 +1,10 @@
+---
+features:
+- shared-instance
+- iam-database-authentication
+- workload-identity
+--- 
+
 # Example: postgres resource based on GCP CloudSQL
 
 ## Configuration
@@ -66,8 +73,10 @@ graph LR;
     shared.db_1 --> server
 ```
 
+## Terraform docs
+
 <!-- BEGIN_TF_DOCS -->
-## Requirements
+### Requirements
 
 | Name | Version |
 |------|---------|
@@ -75,14 +84,14 @@ graph LR;
 | google | ~> 5.17 |
 | humanitec | ~> 1.0 |
 
-## Providers
+### Providers
 
 | Name | Version |
 |------|---------|
 | google | ~> 5.17 |
 | humanitec | ~> 1.0 |
 
-## Modules
+### Modules
 
 | Name | Source | Version |
 |------|--------|---------|
@@ -93,7 +102,7 @@ graph LR;
 | postgres\_instance | ../../humanitec-resource-defs/postgres-instance/basic | n/a |
 | workload | ../../humanitec-resource-defs/workload/service-account | n/a |
 
-## Resources
+### Resources
 
 | Name | Type |
 |------|------|
@@ -113,7 +122,7 @@ graph LR;
 | [humanitec_resource_definition_criteria.workload](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
 | [google_compute_network.network](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/compute_network) | data source |
 
-## Inputs
+### Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|

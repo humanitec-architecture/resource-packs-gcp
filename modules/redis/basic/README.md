@@ -1,24 +1,24 @@
 <!-- BEGIN_TF_DOCS -->
-## Requirements
+### Requirements
 
 | Name | Version |
 |------|---------|
 | terraform | >= 1.3.0 |
 | google | ~> 5.17 |
 
-## Providers
+### Providers
 
 | Name | Version |
 |------|---------|
 | google | ~> 5.17 |
 
-## Resources
+### Resources
 
 | Name | Type |
 |------|------|
 | [google_redis_instance.cache](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/redis_instance) | resource |
 
-## Inputs
+### Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
@@ -39,7 +39,7 @@
 | reserved\_ip\_range | n/a | `string` | `null` | no |
 | weekly\_maintenance\_windows | n/a | `any` | `{}` | no |
 
-## Outputs
+### Outputs
 
 | Name | Description |
 |------|-------------|

@@ -1,24 +1,24 @@
 <!-- BEGIN_TF_DOCS -->
-## Requirements
+### Requirements
 
 | Name | Version |
 |------|---------|
 | terraform | >= 1.3.0 |
 | google | ~> 5.1 |
 
-## Providers
+### Providers
 
 | Name | Version |
 |------|---------|
 | google | ~> 5.1 |
 
-## Resources
+### Resources
 
 | Name | Type |
 |------|------|
 | [google_pubsub_topic.main](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/pubsub_topic) | resource |
 
-## Inputs
+### Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
@@ -29,7 +29,7 @@
 | res\_id | n/a | `string` | n/a | yes |
 | name | n/a | `string` | `""` | no |
 
-## Outputs
+### Outputs
 
 | Name | Description |
 |------|-------------|

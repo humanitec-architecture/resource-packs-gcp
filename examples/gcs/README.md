@@ -1,6 +1,13 @@
+---
+features:
+- workload-identity
+- multiple-access-classes
+--- 
+
 # Example: gcs resource based on Google Cloud Storage
 
 ## Configuration
+
 This example configures a [gcs](https://developer.humanitec.com/platform-orchestrator/reference/resource-types/#gcs) Resource Definition using Google Cloud Storage, with two different access policies:
 
 * `basic-admin` (full access)
@@ -22,6 +29,7 @@ resources:
 ```
 
 ## Infrastructure setup
+
 The workload service account will be automatically assigned to the necessary role with the selected policy.
 
 ```mermaid
@@ -37,6 +45,7 @@ graph TD;
 ```
 
 ## Orchestrator setup
+
 The Resource Graph is using [delegator resources](https://developer.humanitec.com/platform-orchestrator/examples/resource-graph-patterns/#delegator-resource) to expose shared resources with different access policies.
 
 ```mermaid
@@ -47,8 +56,10 @@ graph LR;
   workload_3 --> shared.delegator_1 --> shared.gcs_2["shared.gcs_2, resource_type: gcs"]
 ```
 
+## Terraform docs
+
 <!-- BEGIN_TF_DOCS -->
-## Requirements
+### Requirements
 
 | Name | Version |
 |------|---------|
@@ -56,14 +67,14 @@ graph LR;
 | google | ~> 5.17 |
 | humanitec | ~> 1.0 |
 
-## Providers
+### Providers
 
 | Name | Version |
 |------|---------|
 | google | ~> 5.17 |
 | humanitec | ~> 1.0 |
 
-## Modules
+### Modules
 
 | Name | Source | Version |
 |------|--------|---------|
@@ -76,7 +87,7 @@ graph LR;
 | k8s\_service\_account | ../../humanitec-resource-defs/k8s/service-account | n/a |
 | workload | ../../humanitec-resource-defs/workload/service-account | n/a |
 
-## Resources
+### Resources
 
 | Name | Type |
 |------|------|
@@ -94,7 +105,7 @@ graph LR;
 | [humanitec_resource_definition_criteria.k8s_service_account](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
 | [humanitec_resource_definition_criteria.workload](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
 
-## Inputs
+### Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|

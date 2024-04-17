@@ -1,5 +1,5 @@
 <!-- BEGIN_TF_DOCS -->
-## Requirements
+### Requirements
 
 | Name | Version |
 |------|---------|
@@ -7,19 +7,19 @@
 | google | ~> 5.17 |
 | random | ~> 3.5 |
 
-## Providers
+### Providers
 
 | Name | Version |
 |------|---------|
 | google | ~> 5.17 |
 
-## Resources
+### Resources
 
 | Name | Type |
 |------|------|
 | [google_sql_database_instance.main](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance) | resource |
 
-## Inputs
+### Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
@@ -35,7 +35,7 @@
 | tier | The machine type to use. | `string` | n/a | yes |
 | name | Resource name | `string` | `""` | no |
 
-## Outputs
+### Outputs
 
 | Name | Description |
 |------|-------------|

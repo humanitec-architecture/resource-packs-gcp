@@ -1,6 +1,7 @@
 # Example: dns resource based on GCP Cloud DNS
 
 ## Configuration
+
 This example configures a [dns](https://developer.humanitec.com/platform-orchestrator/reference/resource-types/#dns) Resource Definition using GCP Cloud DNS. A workload using the `dns` resource to create dns records looks like:
 
 ```yaml
@@ -45,8 +46,10 @@ graph LR;
   workload_3 --> shared.dns_1["shared.dns_1, resource_type: dns"]
 ```
 
+## Terraform docs
+
 <!-- BEGIN_TF_DOCS -->
-## Requirements
+### Requirements
 
 | Name | Version |
 |------|---------|
@@ -54,20 +57,20 @@ graph LR;
 | google | ~> 5.17 |
 | humanitec | ~> 1.0 |
 
-## Providers
+### Providers
 
 | Name | Version |
 |------|---------|
 | google | ~> 5.17 |
 | humanitec | ~> 1.0 |
 
-## Modules
+### Modules
 
 | Name | Source | Version |
 |------|--------|---------|
 | dns\_basic | ../../humanitec-resource-defs/dns/basic | n/a |
 
-## Resources
+### Resources
 
 | Name | Type |
 |------|------|
@@ -78,7 +81,7 @@ graph LR;
 | [humanitec_resource_account.humanitec_provisioner](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_account) | resource |
 | [humanitec_resource_definition_criteria.dns_basic](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
 
-## Inputs
+### Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|

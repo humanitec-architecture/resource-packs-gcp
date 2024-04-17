@@ -1,6 +1,13 @@
+---
+features:
+- workload-identity
+- multiple-access-classes
+--- 
+
 # Example: gcp-pubsub resource based on Google Cloud Pub/Sub
 
 ## Configuration
+
 This example configures a [gcp-pubsub-topic](https://developer.humanitec.com/platform-orchestrator/reference/resource-types/#gcp-pubsub-topic) and a [gcp-pubsub-subscription](https://developer.humanitec.com/platform-orchestrator/reference/resource-types/#gcp-pubsub-subscription) Resource Definition using Google Cloud Pub/Sub.
 
 Those Resource Definitions can be used in your Score file using:
@@ -39,6 +46,7 @@ resources:
 ```
 
 ## Infrastructure setup
+
 The workload service account will be automatically assigned to the necessary roles with the selected policies.
 
 ```mermaid
@@ -64,6 +72,7 @@ graph TD;
 ```
 
 ## Orchestrator setup
+
 The Resource Graph is using [delegator resources](https://developer.humanitec.com/platform-orchestrator/examples/resource-graph-patterns/#delegator-resource) to expose shared resources with different access policies.
 
 ```mermaid
@@ -74,8 +83,10 @@ graph LR;
   workload_3 --> shared.delegator_1 --> shared.gcp-pubsub-subscriber_2["shared.gcp-pubsub-subscriber_2, resource_type: gcp-pubsub-subscriber"]
 ```
 
+## Terraform docs
+
 <!-- BEGIN_TF_DOCS -->
-## Requirements
+### Requirements
 
 | Name | Version |
 |------|---------|
@@ -83,14 +94,14 @@ graph LR;
 | google | ~> 5.17 |
 | humanitec | ~> 1.0 |
 
-## Providers
+### Providers
 
 | Name | Version |
 |------|---------|
 | google | ~> 5.17 |
 | humanitec | ~> 1.0 |
 
-## Modules
+### Modules
 
 | Name | Source | Version |
 |------|--------|---------|
@@ -104,7 +115,7 @@ graph LR;
 | pubsub\_topic\_basic | ../../humanitec-resource-defs/gcp-pubsub-topic/basic | n/a |
 | workload | ../../humanitec-resource-defs/workload/service-account | n/a |
 
-## Resources
+### Resources
 
 | Name | Type |
 |------|------|
@@ -123,7 +134,7 @@ graph LR;
 | [humanitec_resource_definition_criteria.pubsub_topic_basic](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
 | [humanitec_resource_definition_criteria.workload](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
 
-## Inputs
+### Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
