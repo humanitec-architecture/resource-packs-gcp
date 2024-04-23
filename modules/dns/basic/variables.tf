@@ -25,11 +25,6 @@ variable "managed_zone" {
   type        = string
 }
 
-variable "managed_zone_dns_name" {
-  description = "The DNS name of the managed zone."
-  type        = string
-}
-
 variable "ip_address" {
   description = "The IPv4 address that the DNS name should resolve to."
   type        = string

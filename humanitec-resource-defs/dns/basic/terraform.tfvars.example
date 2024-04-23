@@ -8,9 +8,6 @@ driver_account = ""
 # The name of the zone in which this record set will reside.
 managed_zone = ""
 
-# The DNS name of the managed zone.
-managed_zone_dns_name = ""
-
 prefix  = ""
 project = ""
 

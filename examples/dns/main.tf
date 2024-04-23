@@ -50,8 +50,7 @@ module "dns_basic" {
   project = var.project
   region  = var.region
 
-  managed_zone          = var.managed_zone
-  managed_zone_dns_name = var.managed_zone_dns_name
+  managed_zone = var.managed_zone
 }
 
 resource "humanitec_resource_definition_criteria" "dns_basic" {
