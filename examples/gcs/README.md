@@ -37,7 +37,7 @@ graph TD;
   gcs["Google Cloud Storage"]
   subgraph GKE Cluster
     pod[workload pod]
-    service[Service Account]
+    service[k8s service account]
   end
   service -- bind role on --> gcs
   service --> pod
@@ -78,13 +78,12 @@ graph LR;
 
 | Name | Source | Version |
 |------|--------|---------|
-| gcp\_service\_account\_workload | ../../humanitec-resource-defs/gcp-service-account/workload | n/a |
 | gcs\_basic | ../../humanitec-resource-defs/gcs/basic | n/a |
 | gcs\_basic\_admin | ../../humanitec-resource-defs/gcs/delegator | n/a |
 | gcs\_basic\_read\_only | ../../humanitec-resource-defs/gcs/delegator | n/a |
 | iam\_role\_binding\_gcs\_admin | ../../humanitec-resource-defs/gcp-iam-policy-binding/basic | n/a |
 | iam\_role\_binding\_gcs\_read\_only | ../../humanitec-resource-defs/gcp-iam-policy-binding/basic | n/a |
-| k8s\_service\_account | ../../humanitec-resource-defs/k8s/service-account | n/a |
+| k8s\_service\_account\_workload | ../../humanitec-resource-defs/k8s-service-account/workload | n/a |
 | workload | ../../humanitec-resource-defs/workload/service-account | n/a |
 
 ### Resources
@@ -96,13 +95,12 @@ graph LR;
 | [google_service_account_key.humanitec_provisioner](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/service_account_key) | resource |
 | [humanitec_application.example](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/application) | resource |
 | [humanitec_resource_account.humanitec_provisioner](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_account) | resource |
-| [humanitec_resource_definition_criteria.gcp_service_account_workload](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
 | [humanitec_resource_definition_criteria.gcs_basic](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
 | [humanitec_resource_definition_criteria.gcs_basic_admin](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
 | [humanitec_resource_definition_criteria.gcs_basic_read_only](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
 | [humanitec_resource_definition_criteria.iam_role_binding_gcs_admin](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
 | [humanitec_resource_definition_criteria.iam_role_binding_gcs_read_only](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
-| [humanitec_resource_definition_criteria.k8s_service_account](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
+| [humanitec_resource_definition_criteria.k8s_service_account_workload](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
 | [humanitec_resource_definition_criteria.workload](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
 
 ### Inputs

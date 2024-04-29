@@ -53,18 +53,16 @@ The workload service account will be automatically assigned to the necessary rol
 graph TD;
   topic["GCP Pub/Sub topic"]
   sub["GCP Pub/Sub subscription"]
-  topic_account["GCP Service account"]
-  sub_account["GCP Service account"]
   subgraph GKE Cluster
     topic_pod[workload pod]
-    topic_service[Service Account]
+    topic_service[k8s service account]
     sub_pod[workload pod]
-    sub_service[Service Account]
+    sub_service[k8s service account]
   end
-  topic_service --> topic_account -- bind role on --> topic
+  topic_service -- bind role on --> topic
   topic_service --> topic_pod
   topic --> topic_pod
-  sub_service --> sub_account -- bind role on --> sub
+  sub_service -- bind role on --> sub
   sub_service --> sub_pod
   sub --> sub_pod
   sub --> topic
@@ -105,12 +103,11 @@ graph LR;
 
 | Name | Source | Version |
 |------|--------|---------|
-| gcp\_service\_account\_workload | ../../humanitec-resource-defs/gcp-service-account/workload | n/a |
 | gps\_basic\_subscriber | ../../humanitec-resource-defs/gcp-pubsub-subscription/delegator | n/a |
 | gpt\_basic\_publisher | ../../humanitec-resource-defs/gcp-pubsub-topic/delegator | n/a |
 | iam\_role\_binding\_gcp\_pubsub\_subscription\_subscriber | ../../humanitec-resource-defs/gcp-iam-policy-binding/basic | n/a |
 | iam\_role\_binding\_gcp\_pubsub\_topic\_publisher | ../../humanitec-resource-defs/gcp-iam-policy-binding/basic | n/a |
-| k8s\_service\_account | ../../humanitec-resource-defs/k8s/service-account | n/a |
+| k8s\_service\_account\_workload | ../../humanitec-resource-defs/k8s-service-account/workload | n/a |
 | pubsub\_subscription\_basic | ../../humanitec-resource-defs/gcp-pubsub-subscription/basic | n/a |
 | pubsub\_topic\_basic | ../../humanitec-resource-defs/gcp-pubsub-topic/basic | n/a |
 | workload | ../../humanitec-resource-defs/workload/service-account | n/a |
@@ -124,12 +121,11 @@ graph LR;
 | [google_service_account_key.humanitec_provisioner](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/service_account_key) | resource |
 | [humanitec_application.example](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/application) | resource |
 | [humanitec_resource_account.humanitec_provisioner](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_account) | resource |
-| [humanitec_resource_definition_criteria.gcp_service_account_workload](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
 | [humanitec_resource_definition_criteria.gps_basic_subscriber](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
 | [humanitec_resource_definition_criteria.gpt_basic_publisher](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
 | [humanitec_resource_definition_criteria.iam_role_binding_gcp_pubsub_subscription_subscriber](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
 | [humanitec_resource_definition_criteria.iam_role_binding_gcp_pubsub_topic_publisher](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
-| [humanitec_resource_definition_criteria.k8s_service_account](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
+| [humanitec_resource_definition_criteria.k8s_service_account_workload](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
 | [humanitec_resource_definition_criteria.pubsub_subscription_basic](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
 | [humanitec_resource_definition_criteria.pubsub_topic_basic](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
 | [humanitec_resource_definition_criteria.workload](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |

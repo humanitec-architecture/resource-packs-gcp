@@ -19,10 +19,9 @@
 | [google_project_iam_member.role](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_member) | resource |
 | [google_pubsub_subscription_iam_member.main](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/pubsub_subscription_iam_member) | resource |
 | [google_pubsub_topic_iam_member.main](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/pubsub_topic_iam_member) | resource |
-| [google_service_account.main](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/service_account) | resource |
 | [google_service_account_iam_member.main](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/service_account_iam_member) | resource |
-| [google_service_account_iam_member.workload_identity_k8s_service_account](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/service_account_iam_member) | resource |
 | [google_storage_bucket_iam_member.main](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket_iam_member) | resource |
+| [google_project.project](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/project) | data source |
 
 ### Inputs
 
@@ -32,7 +31,6 @@
 | bindings | List of additional bindings to grant to the service account | `set(string)` | n/a | yes |
 | env\_id | n/a | `string` | n/a | yes |
 | namespace | k8s namespace | `string` | n/a | yes |
-| prefix | Prefix for all resources | `string` | n/a | yes |
 | project | GCP project ID | `string` | n/a | yes |
 | res\_id | n/a | `string` | n/a | yes |
 | roles | List of project-level roles to grant to the service account | `set(string)` | n/a | yes |
@@ -42,6 +40,6 @@
 
 | Name | Description |
 |------|-------------|
-| email | n/a |
-| k8s\_service\_account\_name | n/a |
+| manifests | The Kubernetes manifests that should be applied to the cluster to create the k8s service-account. |
+| name | n/a |
 <!-- END_TF_DOCS -->

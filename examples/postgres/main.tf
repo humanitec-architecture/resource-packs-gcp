@@ -149,20 +149,8 @@ resource "humanitec_resource_definition_criteria" "iam_role_binding_service_acco
 
 # Required resources for workload identity
 
-module "k8s_service_account" {
-  source = "../../humanitec-resource-defs/k8s/service-account"
-
-  prefix = var.prefix
-}
-
-resource "humanitec_resource_definition_criteria" "k8s_service_account" {
-  resource_definition_id = module.k8s_service_account.id
-  app_id                 = humanitec_application.example.id
-  force_delete           = true
-}
-
-module "gcp_service_account_workload" {
-  source = "../../humanitec-resource-defs/gcp-service-account/workload"
+module "k8s_service_account_workload" {
+  source = "../../humanitec-resource-defs/k8s-service-account/workload"
 
   resource_packs_gcp_url = var.resource_packs_gcp_url
   resource_packs_gcp_rev = var.resource_packs_gcp_rev
@@ -171,12 +159,10 @@ module "gcp_service_account_workload" {
 
   project = var.project
   prefix  = var.prefix
-
-  name = "hrp-pg-$${context.res.id}"
 }
 
-resource "humanitec_resource_definition_criteria" "gcp_service_account_workload" {
-  resource_definition_id = module.gcp_service_account_workload.id
+resource "humanitec_resource_definition_criteria" "k8s_service_account_workload" {
+  resource_definition_id = module.k8s_service_account_workload.id
   app_id                 = humanitec_application.example.id
   force_delete           = true
 }

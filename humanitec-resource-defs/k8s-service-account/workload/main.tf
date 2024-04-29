@@ -1,14 +1,14 @@
 resource "humanitec_resource_definition" "main" {
   driver_type = "humanitec/terraform"
-  id          = "${var.prefix}gcp-service-account-workload"
-  name        = "${var.prefix}gcp-service-account-workload"
-  type        = "gcp-service-account"
+  id          = "${var.prefix}k8s-service-account-workload"
+  name        = "${var.prefix}k8s-service-account-workload"
+  type        = "k8s-service-account"
 
   driver_account = var.driver_account
   driver_inputs = {
     values_string = jsonencode({
       source = {
-        path = "modules/gcp-service-account/workload"
+        path = "modules/k8s-service-account/workload"
         rev  = var.resource_packs_gcp_rev
         url  = var.resource_packs_gcp_url
       }
@@ -25,8 +25,7 @@ resource "humanitec_resource_definition" "main" {
         project = var.project
         roles   = var.roles
 
-        prefix = var.prefix
-        name   = var.name
+        name = var.name
 
         namespace = "$${resources.k8s-namespace#k8s-namespace.outputs.namespace}"
 
@@ -36,6 +35,8 @@ resource "humanitec_resource_definition" "main" {
         app_id = "$${context.app.id}"
         env_id = "$${context.env.id}"
       }
+
+      manifests_output = "manifests"
     })
   }
 }
