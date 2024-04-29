@@ -16,11 +16,13 @@ The following resources are included:
 * [gcp-iam-policy-binding/basic](./humanitec-resource-defs/gcp-iam-policy-binding/basic): Define role bindings for a GCP service account.
 * [gcp-pubsub-subscription/basic](./humanitec-resource-defs/gcp-pubsub-subscription/basic): A `gcp-pubsub-subscription` Resource Definition creating an GCP Pub/Sub Subscription.
 * [gcp-pubsub-topic/basic](./humanitec-resource-defs/gcp-pubsub-topic/basic): A `gcp-pubsub-topic` Resource Definition creating an GCP Pub/Sub Topic.
-* [gcp-service-account/workload](./humanitec-resource-defs/gcp-service-account/workload): An GCP service account, that can be assumed by a workload.
 * [gcs/basic](./humanitec-resource-defs/gcs/basic): A `gcs` Resource Definition creating a GCP Cloud Storage Bucket.
-* [k8s/service-account](./humanitec-resource-defs/k8s/service-account): A `k8s-service-account` linked to an GCP service account.
+* [k8s-service-account/workload](./humanitec-resource-defs/k8s-service-account/workload): A `k8s-service-account` resource that supports GCP role bindings.
 * [mysql/basic](./humanitec-resource-defs/mysql/basic): A `mysql` resource using GCP CloudSQL.
+* [mysql-instance/basic](./humanitec-resource-defs/mysql-instance/basic): A `mysql-instance` resource using GCP CloudSQL.
 * [postgres/basic](./humanitec-resource-defs/postgres/basic): A `postgres` resource using GCP CloudSQL.
+* [postgres/workload-identity](./humanitec-resource-defs/postgres/workload-identity): A `postgres` resource using GCP CloudSQL with Workload Identity.
+* [postgres-instance/basic](./humanitec-resource-defs/postgres-instance/basic): A `postgres-instance` resource using GCP CloudSQL.
 * [redis/basic](./humanitec-resource-defs/redis/basic): GCP Memorystore `redis` resource.
 * [workload/service-account](./humanitec-resource-defs/workload/service-account): Inject a k8s service account into a `workload`.
 
