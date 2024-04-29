@@ -11,9 +11,6 @@ name = ""
 # k8s namespace
 namespace = ""
 
-# Prefix for all resources
-prefix = ""
-
 # GCP project ID
 project = ""
 

@@ -1,5 +1,19 @@
+data "google_project" "project" {
+  project_id = var.project
+}
+
 locals {
   parsed_bindings = [for g in var.bindings : jsondecode(g)]
+
+  principal = "principal://iam.googleapis.com/projects/${data.google_project.project.number}/locations/global/workloadIdentityPools/${var.project}.svc.id.goog/subject/ns/${var.namespace}/sa/${local.k8s_service_account_name}"
+}
+
+resource "google_project_iam_member" "role" {
+  for_each = var.roles
+
+  project = var.project
+  role    = each.key
+  member  = local.principal
 }
 
 resource "google_pubsub_subscription_iam_member" "main" {
@@ -10,7 +24,7 @@ resource "google_pubsub_subscription_iam_member" "main" {
 
   subscription = each.value["subscription"]
   role         = each.value["role"]
-  member       = "serviceAccount:${google_service_account.main[0].email}"
+  member       = local.principal
 }
 
 resource "google_pubsub_topic_iam_member" "main" {
@@ -21,7 +35,7 @@ resource "google_pubsub_topic_iam_member" "main" {
 
   topic  = each.value["topic"]
   role   = each.value["role"]
-  member = "serviceAccount:${google_service_account.main[0].email}"
+  member = local.principal
 }
 
 resource "google_service_account_iam_member" "main" {
@@ -32,7 +46,7 @@ resource "google_service_account_iam_member" "main" {
 
   service_account_id = each.value["service_account_id"]
   role               = each.value["role"]
-  member             = "serviceAccount:${google_service_account.main[0].email}"
+  member             = local.principal
 }
 
 resource "google_storage_bucket_iam_member" "main" {
@@ -43,5 +57,5 @@ resource "google_storage_bucket_iam_member" "main" {
 
   bucket = each.value["bucket"]
   role   = each.value["role"]
-  member = "serviceAccount:${google_service_account.main[0].email}"
+  member = local.principal
 }
