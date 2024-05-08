@@ -22,11 +22,10 @@ containers:
 resources:
   ...
   topic:
-    metadata:
-      annotations:
-        score.humanitec.io/resId: shared.main-topic
     type: gcp-pubsub-topic
     class: basic-publisher
+    # Make it a shared resource by using the "id"
+    id: main-topic
 ```
 
 ```yaml
@@ -76,8 +75,8 @@ The Resource Graph is using [delegator resources](https://developer.humanitec.co
 ```mermaid
 graph LR;
   workload_1 --> delegator_1["delegator_1, resource_type: gcp-pubsub-topic", class: basic-publisher] --> shared.gcp-pubsub-topic_1["shared.gcp-pubsub-topic_1, resource_type: gcp-pubsub-topic"]
-  workload_2 --> delegator_2["delegator_2, resource_type: gcp-pubsub-subscriber, class: basic-consumer"] --> shared.gcp-pubsub-subscriber_1["shared.gcp-pubsub-subscriber_1, resource_type: gcp-pubsub-subscriber"]
-  workload_2 --> shared.delegator_1["shared.delegator_1, resource_type: gcp-pubsub-subscriber, class: basic-consumer"]
+  workload_2 --> delegator_2["delegator_2, resource_type: gcp-pubsub-subscriber, class: basic-subscriber"] --> shared.gcp-pubsub-subscriber_1["shared.gcp-pubsub-subscriber_1, resource_type: gcp-pubsub-subscriber"]
+  workload_2 --> shared.delegator_1["shared.delegator_1, resource_type: gcp-pubsub-subscriber, class: basic-subscriber"]
   workload_3 --> shared.delegator_1 --> shared.gcp-pubsub-subscriber_2["shared.gcp-pubsub-subscriber_2, resource_type: gcp-pubsub-subscriber"]
 ```
 
