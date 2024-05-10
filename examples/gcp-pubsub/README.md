@@ -22,11 +22,10 @@ containers:
 resources:
   ...
   topic:
-    metadata:
-      annotations:
-        score.humanitec.io/resId: shared.main-topic
     type: gcp-pubsub-topic
     class: basic-publisher
+    # Make it a shared resource by using the "id"
+    id: main-topic
 ```
 
 ```yaml
@@ -75,11 +74,17 @@ The Resource Graph is using [delegator resources](https://developer.humanitec.co
 
 ```mermaid
 graph LR;
-  workload_1 --> delegator_1["delegator_1, resource_type: gcp-pubsub-topic", class: basic-publisher] --> shared.gcp-pubsub-topic_1["shared.gcp-pubsub-topic_1, resource_type: gcp-pubsub-topic"]
-  workload_2 --> delegator_2["delegator_2, resource_type: gcp-pubsub-subscriber, class: basic-consumer"] --> shared.gcp-pubsub-subscriber_1["shared.gcp-pubsub-subscriber_1, resource_type: gcp-pubsub-subscriber"]
-  workload_2 --> shared.delegator_1["shared.delegator_1, resource_type: gcp-pubsub-subscriber, class: basic-consumer"]
-  workload_3 --> shared.delegator_1 --> shared.gcp-pubsub-subscriber_2["shared.gcp-pubsub-subscriber_2, resource_type: gcp-pubsub-subscriber"]
+  workload_1 --> delegator_1["id: shared.topic_1, resource_type: gcp-pubsub-topic, class: basic-publisher"] --> shared.gcp-pubsub-topic_1["id: shared.topic_1, resource_type: gcp-pubsub-topic, class: basic"]
+  workload_2 --> delegator_2["id: externals.workload_2, resource_type: gcp-pubsub-subscription, class: basic-subscriber"] --> shared.gcp-pubsub-subscriber_1["id: externals.workload_2, resource_type: gcp-pubsub-subscription, class: basic"]
+  workload_2 --> shared.delegator_1["id: shared.subscription_1, resource_type: gcp-pubsub-subscription, class: basic-subscriber"]
+  workload_3 --> shared.delegator_1 --> shared.gcp-pubsub-subscriber_2["id: shared.subscription_1, resource_type: gcp-pubsub-subscription, class: basic"]
 ```
+
+In this example, the Workload `workload_1` acts as a publisher. It requests a [shared resource](https://developer.humanitec.com/platform-orchestrator/resources/dependent-resources/#shared-resource-dependencies) of type `gcp-pubsub-topic` and class `basic-publisher`. This will be a "delegator" resource, co-provisioning an access policy (not shown) and referencing a "base" resource to provision the actual topic.
+
+The Workload `workload_2` is a subscriber. It requests a [private resource](https://developer.humanitec.com/platform-orchestrator/resources/dependent-resources/#private-resource-dependencies) of type `gcp-pubsub-subscription`. This will likewise be a "delegator" resource, co-provisioning an access policy (not shown) and referencing a "base" resource to provision the actual subscription.
+
+Both `workload_2` and `workload_3` request another [shared resource](https://developer.humanitec.com/platform-orchestrator/resources/dependent-resources/#shared-resource-dependencies) of type `gcp-pubsub-subscription`. This will again be a "delegator" resource. The two Workloads will effectively share the "base" subscription resource, and since they are using the same delegator resource.
 
 ## Terraform docs
 
