@@ -33,7 +33,7 @@ This example uses username and password authentication, checkout [../postgres/RE
 ```mermaid
 graph TD;
   subgraph VPC
-    subgraph server["MySQL CloudSQL Database Instance"]
+    subgraph server["MySQL&nbsp;CloudSQL&nbsp;Database&nbsp;Instance"]
       database["CloudSQL Database"]
       user["CloudSQL User"]
     end

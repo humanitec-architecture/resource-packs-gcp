@@ -40,7 +40,7 @@ subgraph GCP IAM
 end
 
 subgraph VPC
-    subgraph server["PostgreSQL CloudSQL Database Instance"]
+    subgraph server["PostgreSQL&nbsp;CloudSQL&nbsp;Database&nbsp;Instance"]
         database["CloudSQL Database"]
         user["CloudSQL User"]
     end
